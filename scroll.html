@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pure CSS Full Page Scroll (10 Sections)</title>
+  <style>
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+
+    body { 
+      height: 100vh;
+      font-family: system-ui, Arial, sans-serif;
+      /* Remove default scrollbar styling for cleaner look */
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE/Edge */
+    }
+
+    /* Hide scrollbar for webkit browsers */
+    body::-webkit-scrollbar {
+      display: none;
+    }
+
+    section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #fff;
+      user-select: none;
+      -webkit-user-select: none;
+      /* This is the key property for snap scrolling */
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      /* Smooth transitions for better visual experience */
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Enhanced background colors with gradients for visual appeal */
+    .one   { 
+      background: linear-gradient(135deg, #111, #333);
+    }
+    .two   { 
+      background: linear-gradient(135deg, #b5945f, #d4af37);
+    }
+    .three { 
+      background: linear-gradient(135deg, #444, #666);
+    }
+    .four  { 
+      background: linear-gradient(135deg, #0066cc, #0088ff);
+    }
+    .five  { 
+      background: linear-gradient(135deg, #e63946, #ff4757);
+    }
+    .six   { 
+      background: linear-gradient(135deg, #2a9d8f, #26d0ce);
+    }
+    .seven { 
+      background: linear-gradient(135deg, #ff9900, #ffb142);
+    }
+    .eight { 
+      background: linear-gradient(135deg, #6a1b9a, #9c27b0);
+    }
+    .nine  { 
+      background: linear-gradient(135deg, #009688, #4db6ac);
+    }
+    .ten   { 
+      background: linear-gradient(135deg, #ff1744, #ff5722);
+    }
+
+    .hint {
+      position: fixed; 
+      left: 50%; 
+      bottom: 16px; 
+      transform: translateX(-50%);
+      color: #fff; 
+      font-size: 0.9rem; 
+      opacity: .8;
+      z-index: 100;
+      background: rgba(0,0,0,0.5);
+      padding: 8px 16px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    /* Add subtle hover effect */
+    section:hover {
+      transform: scale(1.01);
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      section {
+        font-size: 2rem;
+      }
+      .hint {
+        font-size: 0.8rem;
+        bottom: 20px;
+      }
+    }
+
+    /* Custom scrollbar for browsers that support it */
+    @supports (scrollbar-width: thin) {
+      html {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255,255,255,0.3) transparent;
+      }
+    }
+
+    /* Smooth entry animation */
+    section {
+      opacity: 0;
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Stagger the animations */
+    .one { animation-delay: 0.1s; }
+    .two { animation-delay: 0.2s; }
+    .three { animation-delay: 0.3s; }
+    .four { animation-delay: 0.4s; }
+    .five { animation-delay: 0.5s; }
+    .six { animation-delay: 0.6s; }
+    .seven { animation-delay: 0.7s; }
+    .eight { animation-delay: 0.8s; }
+    .nine { animation-delay: 0.9s; }
+    .ten { animation-delay: 1.0s; }
+
+    /* Enhanced focus styles for keyboard navigation */
+    section:focus {
+      outline: 3px solid rgba(255,255,255,0.8);
+      outline-offset: -3px;
+    }
+  </style>
+</head>
+<body>
+  <section class="one" tabindex="0">
+    <div>Section 1</div>
+  </section>
+  <section class="two" tabindex="0">
+    <div>Section 2</div>
+  </section>
+  <section class="three" tabindex="0">
+    <div>Section 3</div>
+  </section>
+  <section class="four" tabindex="0">
+    <div>Section 4</div>
+  </section>
+  <section class="five" tabindex="0">
+    <div>Section 5</div>
+  </section>
+  <section class="six" tabindex="0">
+    <div>Section 6</div>
+  </section>
+  <section class="seven" tabindex="0">
+    <div>Section 7</div>
+  </section>
+  <section class="eight" tabindex="0">
+    <div>Section 8</div>
+  </section>
+  <section class="nine" tabindex="0">
+    <div>Section 9</div>
+  </section>
+  <section class="ten" tabindex="0">
+    <div>Section 10</div>
+  </section>
+  
+  <div class="hint">Scroll / Arrow Keys / Swipe / Tab + Enter</div>
+
+  <style>
+    /* Additional CSS to prevent overscroll */
+    @supports (overscroll-behavior: none) {
+      html, body {
+        overscroll-behavior: none;
+        overscroll-behavior-y: none;
+      }
+    }
+
+    /* For WebKit browsers (Safari, Chrome) */
+    body {
+      -webkit-overscroll-behavior: none;
+      -webkit-overscroll-behavior-y: none;
+    }
+
+    /* For Firefox */
+    html {
+      scroll-padding-top: 0;
+      scroll-padding-bottom: 0;
+    }
+
+    /* Alternative approach using viewport units */
+    @media screen {
+      html {
+        height: 100vh;
+        max-height: 100vh;
+      }
+      
+      body {
+        height: 100vh;
+        max-height: 100vh;
+      }
+    }
+
+    /* iOS specific fixes */
+    @supports (-webkit-touch-callout: none) {
+      body {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+      }
+      
+      html {
+        height: 100vh;
+        overflow: hidden;
+      }
+    }
+  </style>
+</body>
+</html>
