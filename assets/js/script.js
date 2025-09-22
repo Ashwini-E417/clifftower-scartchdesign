@@ -78,4 +78,55 @@ document.addEventListener("DOMContentLoaded",()=>{
         })
 
     })
+
+
+    let architectcarouselCount = 0;
+        const architectTotal = document.querySelectorAll(".architect-carouselCard").length;
+        const architectContainer = document.querySelector(".architect-carouselViewport");
+        function architectCarouselSlide () {
+            architectContainer.style.transform = `translateX(-${architectcarouselCount*100}%)`;
+        }
+        document.querySelectorAll(".architect-arrowLeft").forEach(element=>{
+            element.addEventListener("click",(e)=>{
+                e.preventDefault();
+                architectcarouselCount = (architectcarouselCount + architectTotal - 1) % architectTotal;
+                architectCarouselSlide();
+            })
+        });
+
+        document.querySelectorAll(".architect-arrowRight").forEach(element=>{
+            element.addEventListener("click",(e)=>{
+                e.preventDefault();
+                architectcarouselCount = (architectcarouselCount + 1) % architectTotal;
+                architectCarouselSlide();
+            })
+        })
+
+        function architectHandleKey(e) {
+            if (e.key == "ArrowLeft") {
+                architectcarouselCount = (architectcarouselCount + architectTotal - 1) % architectTotal;
+                architectCarouselSlide();
+            }
+            else if (e.key == "ArrowRight") {
+                architectcarouselCount = (architectcarouselCount + 1) % architectTotal;
+                architectCarouselSlide();
+            }
+        }
+
+        const architectsection = document.querySelector(".architect-sectionTwo");
+
+        const observer = new IntersectionObserver((entries)=>{
+            entries.forEach(entry =>{
+            if (entry.isIntersecting) {
+                document.addEventListener("keydown",architectHandleKey);
+            }
+            else {
+                document.removeEventListener("keydown",architectHandleKey);
+            }
+            })
+            
+        },{threshold:0.3});
+
+        observer.observe(architectsection);
+
 })
