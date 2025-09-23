@@ -130,3 +130,165 @@ document.addEventListener("DOMContentLoaded",()=>{
         observer.observe(architectsection);
 
 })
+
+
+//****************************************
+// ******************Highlight JS-*******
+// *********************************************** */
+document.addEventListener("DOMContentLoaded",()=>{
+
+    const highlightTotal = document.querySelectorAll(".highlight-carouselCard").length;
+    let highlightCount = 0;
+    const highlightViewport = document.querySelector(".highlight-carouselViewport");
+
+    function ScrollHighlightLeft() {
+        highlightCount = (highlightCount + highlightTotal - 1) % highlightTotal;
+        highlightViewport.style.transform = `translateX(-${highlightCount*100}%)`;
+    }
+
+    function ScrollHighlightRight() {
+        highlightCount = (highlightCount + 1) % highlightTotal;
+        highlightViewport.style.transform = `translateX(-${highlightCount*100}%)`;
+    }
+
+    document.querySelectorAll(".highlightLeft").forEach(element=>{
+        element.addEventListener("click",(e)=>{
+            e.preventDefault();
+            ScrollHighlightLeft();
+        })
+    })
+
+    document.querySelectorAll(".highlightRight").forEach(element =>{
+        element.addEventListener("click",(e)=>{
+            e.preventDefault();
+            ScrollHighlightRight();
+        })
+    })
+
+    function HighlightKeyHandle(e) {
+        if (e.key=="ArrowLeft") {
+            ScrollHighlightLeft();
+        } else if (e.key == "ArrowRight") {
+            ScrollHighlightRight();
+        }
+    }
+
+    const highlightContainer = document.querySelector(".project-highlightTwo");
+
+    const observer = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+            if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+                document.addEventListener("keydown", HighlightKeyHandle);
+            }
+            else {
+                document.removeEventListener("keydown", HighlightKeyHandle);
+            }
+        })
+    },{threshold:0.3})
+
+    observer.observe(highlightContainer);
+})
+
+//****************************************
+// ******************floor Plan JS-*******
+// *********************************************** */
+document.addEventListener("DOMContentLoaded",()=>{
+    const floorTotal = document.querySelectorAll(".floorcard").length;
+    let floorCount = 0;
+    const floorViewPort = document.querySelector(".floorplan-CarouselViewport");
+    const floorIndicator = document.querySelector(".floorIndicator")
+    function SlideFloorLeft() {
+        floorCount = (floorCount + floorTotal -1 )% floorTotal;
+        floorViewPort.style.transform = `translateX(-${floorCount * 100}%)`;
+        floorIndicator.innerHTML = floorCount + 1;
+    }
+    function SlideFloorRight(){
+        floorCount = (floorCount + 1) % floorTotal;
+        floorViewPort.style.transform = `translateX(-${floorCount * 100}%)`;
+        floorIndicator.innerHTML = floorCount + 1;
+    }
+    document.querySelector(".floor-left").addEventListener("click",(e)=>{
+        e.preventDefault();
+        SlideFloorLeft();
+    });
+    document.querySelector(".floor-right").addEventListener("click",(e)=>{
+        e.preventDefault();
+        SlideFloorRight();
+        })
+                
+    const floorContainer = document.querySelector(".floorPlanContainer");
+
+    const observer = new IntersectionObserver(entries=>{
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+                document.addEventListener("keydown",floorKeyHandle);
+            }
+            else {
+                document.removeEventListener("keydown",floorKeyHandle);
+            }
+        })
+    },{threshold:0.3})
+    observer.observe(floorContainer);
+
+    function floorKeyHandle(e) {
+        if (e.key == "ArrowLeft") {
+            SlideFloorLeft();
+        }
+        else if (e.key == "ArrowRight") {
+            SlideFloorRight();
+        }
+    }
+})
+
+//****************************************
+// ******************Gallery JS-*******
+// *********************************************** */
+document.addEventListener("DOMContentLoaded",()=>{
+    const galleryTotal = document.querySelectorAll(".galleryCard").length;
+    let galleryCount = 0;
+    const galleryViewport = document.querySelector(".gallery-viewport");
+    const galleryContainer = document.querySelector(".galleryContainer");
+    const galleryIndicator = document.querySelector(".gallery-indicator");
+
+    function SlideGalleryLeft() {
+        galleryCount = (galleryCount + galleryTotal - 1) % galleryTotal;
+        galleryViewport.style.transform = `translateX(-${galleryCount*100}%)`;
+        galleryIndicator.innerHTML = galleryCount + 1;
+    }
+
+    function SlideGalleryRight() {
+        galleryCount = (galleryCount + 1) % galleryTotal;
+        galleryViewport.style.transform = `translateX(-${galleryCount*100}%)`;
+        galleryIndicator.innerHTML = galleryCount + 1;
+    }
+    function galleryKeyHandle(e) {
+        if (e.key == "ArrowLeft") {
+            SlideGalleryLeft();
+        }
+        else if (e.key == "ArrowRight") {
+            SlideGalleryRight();
+        }
+    }
+
+    document.querySelector(".gallery-left").addEventListener("click",(e)=>{
+        e.preventDefault();
+        SlideGalleryLeft();
+    });
+
+    document.querySelector(".gallery-right").addEventListener("click",(e)=>{
+        e.preventDefault();
+        SlideGalleryRight();
+    })
+    const observer = new IntersectionObserver(entries =>{
+        entries.forEach(entry=>{
+            if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+                document.addEventListener("keydown",galleryKeyHandle);
+            }
+            else {
+                document.removeEventListener("keydown",galleryKeyHandle);
+            }
+        })
+    },{threshold:0.3});
+
+    observer.observe(galleryContainer);
+})
