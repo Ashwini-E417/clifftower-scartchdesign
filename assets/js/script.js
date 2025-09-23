@@ -292,3 +292,51 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     observer.observe(galleryContainer);
 })
+//****************************************
+// ******************location JS-*******
+// *********************************************** */
+document.addEventListener("DOMContentLoaded",()=>{
+    const locationTotal = document.querySelectorAll(".location-card").length;
+    let locationCount = 0;
+    const locationViewport = document.querySelector(".location-viewport");
+    const locationContainer = document.querySelector(".location-ContainerTwo");
+
+    function SlideLocationLeft() {
+        locationCount = (locationCount + locationTotal - 1) % locationTotal;
+        locationViewport.style.transform = `translateX(-${locationCount*100}%)`;
+    }
+
+    function SlideLocationRight() {
+        locationCount = (locationCount + 1) % locationTotal;
+        locationViewport.style.transform = `translateX(-${locationCount*100}%)`;
+    }
+
+    document.querySelector(".location-left").addEventListener("click",(e)=>{
+        e.preventDefault();
+        SlideLocationLeft();
+    })
+    document.querySelector(".location-right").addEventListener("click",(e)=>{
+        e.preventDefault();
+        SlideLocationRight();
+    })
+
+    function locationKeyHandle(e) {
+        if (e.key=="ArrowLeft") {
+            SlideLocationLeft();
+        }
+        else if (e.key=="ArrowRight") {
+            SlideLocationRight();
+        }
+    }
+
+    const observer = new IntersectionObserver((entries)=>{
+        entries.forEach(entry =>{
+            if (entry.isIntersecting && entry.intersectionRatio>0.3) {
+                document.addEventListener("keydown",locationKeyHandle);
+            }else {
+                document.removeEventListener("keydown",locationKeyHandle);
+            }
+        })
+    },{threshold:0.3})
+    observer.observe(locationContainer);
+})

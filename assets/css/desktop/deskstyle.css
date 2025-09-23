@@ -176,6 +176,7 @@ header {
     font-size: 3rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    pointer-events: none;
 }
 
 .belowBannerImage {
@@ -341,7 +342,7 @@ header {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
     gap: 1rem;
     padding: 0 1rem;
@@ -678,7 +679,6 @@ header {
 .gallery-carouselContainer {
     width: 100%;
     height: 100%;
-    border: 1px solid red;
     overflow: hidden;
 }
 .gallery-viewport {
@@ -818,4 +818,163 @@ header {
     right: 0;
     top: 0%;
     transform-origin: right center;
+    line-height: 1;
+}
+
+.location-ContainerTwo {
+    background: #121b2a;
+    width: 100vw;
+    height: 100vh;
+    padding: 3% 5rem;
+    position: relative;
+}
+.locationMap {
+    width: 100%;
+    height: 100%;
+}
+.location-carouselContainer {
+    position: absolute;
+    bottom: 0%;
+    left: 5rem;
+    width: 40%;
+    height: 50%;
+    margin-bottom: 3%;
+    overflow: hidden;
+}
+.location-viewport {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 0;
+    flex-direction: row;
+}
+.location-card {
+    flex: 0 0 100%;
+    position: relative;
+    background-color: burlywood;
+    padding: 1rem;
+}
+.location-text {
+    color:#000;
+    text-transform: uppercase;
+    font-size: clamp(30px,2vw,40px);
+}
+.location-cardImage {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.location-distance {
+    font-size: clamp(100px,9vw,140px);
+    color: #000;
+    position: absolute;
+    bottom: 0;
+    line-height: 1;
+}
+.location-km{
+    font-size: clamp(2rem,4vw,4rem);
+}
+.location-ArrowContainer {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+}
+.location-headingBold {
+    font-size: clamp(100px,90vw,140px);
+    position: absolute;
+    top: 10%;
+    line-height: 1;
+    text-transform: uppercase;
+}
+.location-headingSmall {
+    color: rgb(255, 255, 255, 0.7);
+    display: block;
+    font-size: clamp(2.7rem,4vw,4rem);
+    line-height: 0.5;
+}
+/****************************************
+// ******************one address JS-*******
+// *********************************************** */
+.oneaddress-container {
+    width: 100vw;
+    height: 100vh;
+    padding: 5% 5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.oneaddress-leftContainer {
+    flex: 0 0 40%;
+}
+.oneaddress-heading {
+    font-size: clamp(1.5rem,2.1vw,3rem);
+    color: rgb(255, 255, 255, 0.7);
+}
+.oneaddress-rightContainer {
+    flex: 0 0 50%;
+}
+.oneaddress-imageContainer {
+    width: 100%;
+    height: 50%;
+    margin: 20% 0;
+    position: relative;
+}
+.oneaddress-Image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.oneaddress-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: linear-gradient(90deg, rgba(153, 107, 85, 1) 3%, rgba(229, 171, 142, 1) 35%, rgba(229, 171, 142, 1) 48%, rgba(153, 107, 85, 1) 93% );
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.oneaddress-headingBold {
+    position: absolute;
+    bottom: 5%;
+    left: 5rem;
+    font-size: clamp(100px,9vw,140px);
+    line-height: 1;
+    text-transform: uppercase;
+}
+.oneaddress-headingSmall {
+    display: block;
+    font-size: clamp(2.7rem,4vw,4rem);
+    line-height: 0.5;
+    color: rgb(255, 255, 255, 0.7);
+}
+
+
+.footer-container {
+    padding: 5% 5rem;
+    text-align: center;
+}
+.footer-linkContainer {
+    color: var(--rosegold-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+.footer-link {
+    text-decoration: underline;
+}
+.disclaimer {
+    font-size: 0.8rem;
 }

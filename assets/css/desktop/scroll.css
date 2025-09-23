@@ -82,6 +82,7 @@
     .thirteen {animation-delay: 1.3s;}
     .fourteen { animation-delay: 1.4s;}
     .fifteen { animation-delay: 1.5s;}
+    .sixteen { animation-delay: 1.6s;}
 
     /* Enhanced focus styles for keyboard navigation */
     section:focus {
@@ -145,5 +146,29 @@
       html {
         height: 100vh;
         overflow: hidden;
+      }
+    }
+
+
+
+    .star {
+      position: fixed;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: starfloat linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes starfloat {
+      from {
+        transform: translateY(100vh);
+        opacity: 0.8;
+      }
+      to {
+        transform: translateY(-10vh);
+        opacity: 0.2;
       }
     }

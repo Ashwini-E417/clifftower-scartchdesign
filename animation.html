@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Starry Background</title>
+  <style>
+    body {
+      font-family: "poppins", helvetica;
+      font-size: 1rem;
+      background-color: #06162e;
+      color: #fff;
+      letter-spacing: 0.5px;
+      margin: 0;
+      overflow: hidden; /* prevent scrollbars from stars */
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: float linear infinite;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(100vh);
+        opacity: 0.8;
+      }
+      to {
+        transform: translateY(-10vh);
+        opacity: 0.2;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align:center; margin-top:40px;">Floating Stars Background</h1>
+
+  <script>
+    const starCount = 200; // how many stars
+    for (let i = 0; i < starCount; i++) {
+      const star = document.createElement("div");
+      star.classList.add("star");
+      document.body.appendChild(star);
+
+      // random position & animation
+      star.style.left = Math.random() * 100 + "vw";
+      star.style.top = Math.random() * 100 + "vh";
+      star.style.animationDuration = 5 + Math.random() * 10 + "s";
+      star.style.animationDelay = Math.random() * 10 + "s";
+      star.style.opacity = Math.random();
+      star.style.width = star.style.height = Math.random() * 3 + "px";
+    }
+  </script>
+</body>
+</html>
