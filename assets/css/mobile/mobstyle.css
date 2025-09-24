@@ -1,0 +1,289 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: "poppins",helvetica;
+    font-size: 1rem;
+    background-color: #06162e;
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+button, a {
+    all: unset;
+    cursor: pointer;
+}
+:root {
+    --rosegold-color : rgba(229, 171, 142, 1);
+}
+.bannerContainer {
+    width: 100vw;
+    position: relative;
+}
+header {
+    background: linear-gradient(159deg, rgba(6, 22, 46, 0.6) 0%, rgba(6, 22, 46, 1) 30%, rgba(6, 22, 46, 1) 70%, rgba(6, 22, 46, 0.6) 100%);
+    width: 100%;
+    border-bottom: 1px solid #fff;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+}
+nav {
+    width: 100%;
+    display: flex;
+    padding: 1vh 5vw;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.menuBtn {
+    width: 7%;
+    height: auto;
+}
+.changeMenuIcon {
+    width: 100%;
+    display: block;
+}
+.logoImage {
+    width: 50%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+}
+.navModal {
+    position: fixed;
+    left: 0rem;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in-out;
+}
+.navModal.active {
+    transform: translateX(0);
+}
+.nav-content {
+    background: linear-gradient(90deg, rgba(153, 107, 85, 0.7) 3%, rgba(229, 171, 142, 0.7) 35%, rgba(229, 171, 142, 0.7) 48%, rgba(153, 107, 85, 0.7) 93%);
+    width: calc(100% - 10vw);
+    max-width: 500px;
+    left: 5vw;
+    right: 5vw;
+    position: absolute;
+    padding: 24px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+.nav-item {
+    display: block;
+    padding-bottom: 4vh;
+    color: #000;
+}
+.nav-item:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+.requestCallBackBtn {
+    background: linear-gradient(90deg, rgba(153, 107, 85, 1) 3%, rgba(229, 171, 142, 1) 35%, rgba(229, 171, 142, 1) 48%, rgba(153, 107, 85, 1) 93% );
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+    /* padding: 0 24px; */
+    justify-content: space-between;
+    color: #000;
+}
+.requestCallBackBtn span {
+    padding: 0 24px;
+}
+.banner {
+    position: relative;
+}
+.bgVideoContainer {
+    width: 100%;
+    height: auto;
+}
+.bgVideo {
+    width: 100%;
+    height: 75vh;
+    object-fit: cover;
+    display: block;
+}
+.bannerImageContainer .bgVideo {
+    width: 100%;
+    height: 100%;
+}
+.bannerImageContainer {
+    width: 40%;
+    height: 45%;
+    border-radius: 100px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    right: 5vw;
+    transform: translateY(50%);
+}
+.bannerImage {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.bgVideoContainer .bannerImage {
+    width: 100%;
+    height: 75vh;
+    object-fit: cover;
+    display: block;
+}
+.videoImageReverseBtn {
+    position: absolute;
+    bottom: 0;
+    right: calc(40% + 5vw);
+    transform: translate(50%,50%);
+}
+.reverseImage {
+    display: block;
+    width: 12vw;
+    height: 12vw;
+}
+.liveContentContainer {
+    padding: 0% 1vw 1vh;
+}
+.liveTextHolder {
+    padding: 0 5vw 1vh;
+}
+.live {
+    font-size: clamp(24px,8vw,40px);
+    color: rgb(255,255,255,0.48);
+    line-height: 1;
+}
+.here {
+    font-size: clamp(30px,12vw,50px);
+    line-height: 1;
+    color: rgb(255,255,255,0.8);
+    font-weight: 600;
+}
+.bannerContent {
+    padding: 1vh 5vw;
+}
+@media (min-width:600px) {
+    .bannerImageContainer{
+        border-radius: 200px;
+        width: 30%;
+    }
+    .videoImageReverseBtn {
+        right: calc(30% + 5vw);
+    }
+}
+
+/*************************************************
+******************Architect - one ****************
+*************************************************/
+.architect-bannerContainer {
+    position: relative;
+}
+.belowBannerImage {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.whitesphere1 {
+    width: 50%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateY(50%);
+    animation: float2 4s cubic-bezier(0.4,0,0.6,1) infinite;
+    max-width: 300px;
+    display: block;
+}
+@keyframes float2 {
+    0% {transform: translateY(50%);}
+    50% {transform: translateY(54%);}
+    100% {transform: translateY(50%);}
+}
+.architect-text {
+    color: var(--rosegold-color);
+    font-size: clamp(12px, 4.5vw, 30px);
+    font-weight: 600;
+    padding: 1vh 1rem;
+    width: 64%;
+    letter-spacing: 0;
+    line-height: normal;
+}
+.architect-dividerOne {
+    opacity: 0.48;
+    margin: 1rem 2vw 1.5rem;
+}
+
+/*************************************************
+******************Architect - Two ****************
+*************************************************/
+.architect-sectionTwo {
+    position: relative;
+}
+.architect-heading {
+    font-size: clamp(35px,10.5vw,48px);
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    text-align: center;
+}
+.architect-imageContainer {
+    padding: 1rem 1rem 0;
+    position: relative;
+}
+.architect-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.brownSphere2 {
+    width: 45%;
+    position: absolute;
+    top: 40%;
+    left: -10%;
+    max-width: 300px;
+    display: block;
+}
+.architectEnquireBtn {
+    width: 10vw;
+    height: 10vw;
+    background: linear-gradient(90deg, rgba(153, 107, 85, 1) 3%, rgba(229, 171, 142, 1) 35%, rgba(229, 171, 142, 1) 48%, rgba(153, 107, 85, 1) 93% );
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+}
+.architectEnquireImage {
+    width: 6vw;
+    height: 6vw;
+}
+.architect-description {
+    padding: 0 1rem;
+}
+.architect-popup {
+    width: 13vw;
+    height: 13vw;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, rgba(153, 107, 85, 1) 3%, rgba(229, 171, 142, 1) 35%, rgba(229, 171, 142, 1) 48%, rgba(153, 107, 85, 1) 93% );
+    float: right;
+    margin: 0 1rem 0 0;
+}
+.architect-popupImage {
+    width: 8vw;
+    height: 8vw;
+    display: block;
+}
+@media (min-width:600px) {
+    .architectEnquireBtn {
+        bottom: 3rem;
+        right: 3rem;
+    }
+}
