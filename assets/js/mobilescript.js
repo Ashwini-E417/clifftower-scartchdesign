@@ -137,5 +137,128 @@ document.addEventListener("DOMContentLoaded",()=>{
         }
     });
 
-    
+
 });
+
+/*************************************************
+******************floor - js ****************
+*************************************************/
+document.addEventListener("DOMContentLoaded",()=>{
+    const floorTotal = document.querySelectorAll(".floorCard").length;
+    let floorCount = 0;
+    const floorviewport = document.querySelector(".floorCarouselViewport");
+    const floorContainer = document.querySelector(".floor-container");
+    const floorIndicator = document.querySelector(".floorIndicator");
+    let floorTimer = setInterval(SetFloorMovement,5000);
+
+    function SlideFloorLeft() {
+        floorCount = (floorCount + floorTotal - 1) % floorTotal;
+        floorviewport.style.transform = `translateX(-${floorCount * 100}%)`;
+        floorIndicator.innerHTML = floorCount + 1;
+    }
+
+    function SlideFloorRight() {
+        floorCount = (floorCount + 1) % floorTotal;
+        floorviewport.style.transform = `translateX(-${floorCount * 100}%)`;
+        floorIndicator.innerHTML = floorCount + 1;
+    }
+
+    function SetFloorMovement() {
+        SlideFloorRight();
+    }
+    function ResetFloorTimer() {
+        clearInterval(floorTimer);
+        floorTimer = setInterval(SetFloorMovement,5000);
+    }
+
+    document.querySelector(".floor-left").addEventListener("click",(e)=>{
+        e.preventDefault();
+        SlideFloorLeft();
+        ResetFloorTimer();
+    });
+    document.querySelector(".floor-right").addEventListener("click",(e)=>{
+        e.preventDefault();
+        SlideFloorRight();
+        ResetFloorTimer();
+    });
+
+    let floorTouchStart = null;
+    floorContainer.addEventListener("touchstart",(e)=>{
+        floorTouchStart = e.touches[0].clientX;
+    })
+    floorContainer.addEventListener("touchend",(e)=>{
+        const floorTouchEnd = e.changedTouches[0].clientX;
+        if (floorTouchEnd < floorTouchStart - 50) {
+            SlideFloorRight();
+            ResetFloorTimer();
+        }
+        else if (floorTouchEnd > floorTouchStart + 50) {
+            SlideFloorLeft();
+            ResetFloorTimer();
+        }
+    });
+
+
+})
+/*************************************************
+******************gallery - JS ****************
+*************************************************/
+document.addEventListener("DOMContentLoaded",()=>{
+    const galleryTotal = document.querySelectorAll(".galleryCard").length;
+    let galleryCount = 0;
+    const galleryViewport = document.querySelector(".gallery-viewport");
+    const galleryContainer = document.querySelector(".galleryContainer");
+    const galleryIndicator = document.querySelector(".galleryIndicator");
+    let galleryTimer = setInterval(SetGalleryMovement,5000);
+
+    function SlideGalleryLeft() {
+        galleryCount = (galleryCount + galleryTotal - 1) % galleryTotal;
+        galleryViewport.style.transform = `translateX(-${galleryCount*100}%)`;
+        galleryIndicator.innerHTML = galleryCount + 1;
+    }
+    function SlideGalleryRight() {
+        galleryCount = (galleryCount + 1) % galleryTotal;
+        galleryViewport.style.transform = `translateX(-${galleryCount*100}%)`;
+        galleryIndicator.innerHTML = galleryCount + 1;
+    }
+    function SetGalleryMovement() {
+        SlideGalleryRight();
+    }
+    function ResetGalleryTimer() {
+        clearInterval(galleryTimer);
+        galleryTimer = setInterval(SetGalleryMovement,5000);
+    }
+    document.querySelector(".gallery-left").addEventListener("click",(e)=>{
+        e.preventDefault();
+        SlideGalleryLeft();
+        ResetGalleryTimer();
+    });
+    document.querySelector(".gallery-right").addEventListener("click",(e)=>{
+        e.preventDefault();
+        SlideGalleryRight();
+        ResetGalleryTimer();
+    });
+
+    let galleryTouchStart = null;
+    galleryContainer.addEventListener("touchstart",(e)=>{
+        galleryTouchStart = e.touches[0].clientX;
+    })
+    galleryContainer.addEventListener("touchend",(e)=>{
+        const galleryTouchEnd = e.changedTouches[0].clientX;
+        if (galleryTouchEnd < galleryTouchStart - 50) {
+            SlideGalleryRight();
+            ResetGalleryTimer();
+        }
+        else if (galleryTouchEnd > galleryTouchStart + 50) {
+            SlideGalleryLeft();
+            ResetGalleryTimer();
+        }
+    });
+
+    document.querySelector(".gallery-decorationTwo").addEventListener("load",galleryDescriptionPadding);
+    function galleryDescriptionPadding() {         
+        const decoheight = document.querySelector(".gallery-decorationTwo").scrollHeight / 2;
+        document.querySelector(".galleryDescription").style.paddingTop = decoheight + "px";
+    }
+    window.addEventListener("resize",galleryDescriptionPadding);
+})
