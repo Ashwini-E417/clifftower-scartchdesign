@@ -77,3 +77,65 @@ document.addEventListener("DOMContentLoaded",()=>{
         }
     })
 })
+/*************************************************
+******************highlight - js ****************
+*************************************************/
+
+document.addEventListener("DOMContentLoaded",()=>{
+    const highlightviewport = document.querySelector(".highlightCarouselViewport");
+    const highlighttotal = document.querySelectorAll(".highlightCard").length;
+    let highlightCount = 0;
+    const highlightIndicator = document.querySelector(".highlightIndicator");
+    let highlightTimer = setInterval(SetHighlightMovement,5000);
+
+    function SlideHighlightLeft() {
+        highlightCount = (highlightCount + highlighttotal - 1) % highlighttotal;
+        highlightviewport.style.transform = `translateX(-${highlightCount * 100}%)`;
+        highlightIndicator.innerHTML = highlightCount + 1;
+    }
+
+    function SlideHighlightRight() {
+        highlightCount = (highlightCount + 1) % highlighttotal;
+        highlightviewport.style.transform = `translateX(-${highlightCount * 100}%)`;
+        highlightIndicator.innerHTML = highlightCount + 1;
+    }
+
+    function SetHighlightMovement() {
+        SlideHighlightRight();
+    }
+
+    function ResetHighlightTimer() {
+        clearInterval(highlightTimer);
+        highlightTimer = setInterval(SetHighlightMovement,5000);
+    }
+
+    document.querySelector(".highlight-left").addEventListener("click",(e)=>{
+        e.preventDefault();
+        SlideHighlightLeft();
+        ResetHighlightTimer();
+    });
+
+    document.querySelector(".highlight-right").addEventListener("click",(e)=>{
+        e.preventDefault();
+        SlideHighlightRight();
+        ResetHighlightTimer();
+    })
+    
+    let highlightTouchStart = null;
+    highlightviewport.addEventListener("touchstart",(e)=>{
+        highlightTouchStart = e.touches[0].clientX;
+    })
+    highlightviewport.addEventListener("touchend",(e)=>{
+        const highlightTouchEnd = e.changedTouches[0].clientX;
+        if (highlightTouchEnd < highlightTouchStart - 50) {
+            SlideHighlightRight();
+            ResetHighlightTimer();
+        }
+        else if (highlightTouchEnd > highlightTouchStart + 50) {
+            SlideHighlightLeft();
+            ResetHighlightTimer();
+        }
+    });
+
+    
+});
