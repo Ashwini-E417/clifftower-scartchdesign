@@ -503,3 +503,286 @@ nav {
     padding: 3vw;
     border-radius: 50%;
 }
+/*************************************************
+******************location - one ****************
+*************************************************/
+.location-containerOne {
+    position: relative;
+}
+.location-bannerImageContainer {
+    position: relative;
+}
+.locationBanner {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.fairyStatue {
+    width: 30%;
+    max-width: 300px;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: float2 4s cubic-bezier(0.4,0,0.6,1) infinite;
+    display: block;
+}
+.location-text {
+    padding: 0 1rem 1rem;
+    font-size: clamp(12px,4.5vw,30px);
+    color: var(--rosegold-color);
+    font-weight: 600;
+}
+.locationVisualContainer {
+    position: relative;
+}
+.mountmary {
+    width: 100%;
+    display: block;
+}
+.angelOne {
+    position: absolute;
+    top: 5%;
+    width: 25%;
+    max-width: 250px;
+    height: auto;
+    display: block;
+    animation: float 4s cubic-bezier(0.4,0,0.6,1) infinite;
+}
+.angelTwo {
+    position: absolute;
+    bottom: 5%;
+    right: 0;
+    width: 25%;
+    max-width: 250px;
+    height: auto;
+    display: block;
+    animation: float 4s cubic-bezier(0.4,0,0.6,1) infinite;
+}
+.locationEnquireBtn {
+    width: 10vw;
+    height: 10vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, rgba(153, 107, 85, 1) 3%, rgba(229, 171, 142, 1) 35%, rgba(229, 171, 142, 1) 48%, rgba(153, 107, 85, 1) 93% );
+    border-radius: 50%;
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+}
+.locationEnquireImage {
+    width: 5vw;
+    height: 5vw;
+    display: block;
+}
+.location-description {
+    padding: 1rem;
+}
+.location-headingBold {
+    font-size: clamp(35px,10.5vw,48px);
+    letter-spacing: 10px;
+    line-height: 1;
+    text-transform: uppercase;
+    position: absolute;
+    right: 35px;
+    top: 50%;
+    transform: rotate(-90deg) translateX(50%);
+    transform-origin: right center;
+}
+/*************************************************
+******************Map - one ****************
+*************************************************/
+.map-container {
+    position: relative;
+}
+.map {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.location-carouselContainer {
+    position: relative;
+    overflow: hidden;
+}
+.location-viewport {
+    display: flex;
+    gap: 0;
+    flex-direction: row;
+}
+.locationCard {
+    flex: 0 0 100%;
+    position: relative;
+    background-color: #faeee8;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+}
+.location-cardDescription {
+    font-size: clamp(24px,4.5vw,35px);
+    text-transform: uppercase;
+    font-weight: 500;
+    padding-bottom: 1rem;
+    line-height: 1;
+}
+.location-cardImage {
+    width: 50%;
+    height: 50%;
+    margin: 0 auto;
+}
+.location-distance {
+    font-size: clamp(100px,8vw,140px);
+}
+.location-km {
+    text-transform: uppercase;
+    font-size: clamp(35px,4.5vw,48px);
+}
+.locationArrowContainer {
+    position: absolute;
+    bottom: 1rem; 
+    right: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-direction: row;
+}
+/*************************************************
+******************one address****************
+*************************************************/
+.oneaddressContainer {
+    position: relative;
+    padding: 1rem;
+}
+.oneaddress-headingSmall {
+    font-size: clamp(24px,4.5vw,35px);
+    color: var(--rosegold-color);
+    opacity: 0.7;
+}
+.oneaddress-headingBold {
+    font-size: clamp(35px,10.5vw,48px);
+    color: var(--rosegold-color);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+.oneaddress-imageHolder {
+    position: relative;
+}
+.oneaddressImage {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    display: block;
+}
+.oneaddressBtn {
+    width: 10vw;
+    height: 10vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: linear-gradient(90deg, rgba(153, 107, 85, 1) 3%, rgba(229, 171, 142, 1) 35%, rgba(229, 171, 142, 1) 48%, rgba(153, 107, 85, 1) 93% );
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.oneAddressBtnImage {
+    width: 5vw;
+    height: 5vw;
+    display: block;
+}
+.one-address-text {
+    font-size: clamp(12px,4.5vw,30px);
+    color: var(--rosegold-color);
+    font-weight: 600;
+    padding-top: 1rem;
+}
+.oneaddressEnquireBtn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.5rem 0rem;
+}
+.oneaddressEnquireBtn hr {
+    width: calc(100% - 12vw);
+}
+.oneaddressEnquireBtn img {
+    background: linear-gradient(90deg, rgba(153, 107, 85, 1) 3%, rgba(229, 171, 142, 1) 35%, rgba(229, 171, 142, 1) 48%, rgba(153, 107, 85, 1) 93% );
+    width: 10vw;
+    height: 10vw;
+    padding: 3vw;
+    border-radius: 50%;
+}
+/*************************************************
+******************Footer - one ****************
+*************************************************/
+.footerContainer {
+    padding: 5rem 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+}
+.qrContainer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+.qrImage {
+    display: block;
+}
+.footer-infoContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: fit-content;
+    margin: 0 auto;
+}
+.footer-info {
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+}
+.footer-linkContainer {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 1rem 0;
+    align-items: center;
+}
+.footer-link {
+    color: var(--rosegold-color);
+    font-weight: 600;
+    text-decoration: underline;
+}
+@media (min-width:600px) {
+    .footerContainer {
+        padding-bottom: 8rem;
+    }
+}
+.fixedBottomBar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    background: linear-gradient(45deg, rgba(6, 22, 46, 0.6) 0%, rgba(6, 22, 46, 1) 30%, rgba(6, 22, 46, 1) 70%, rgba(6, 22, 46, 0.6) 100%);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    padding-top: 10px;
+}
+.callFooterImg {
+    width: 15vw;
+    max-width: 100px;
+    height: auto;
+    display: block;
+}
+.siteFooterImg {
+    width: 30vw;
+    max-width: 200px;
+    display: block;
+}

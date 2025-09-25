@@ -261,4 +261,72 @@ document.addEventListener("DOMContentLoaded",()=>{
         document.querySelector(".galleryDescription").style.paddingTop = decoheight + "px";
     }
     window.addEventListener("resize",galleryDescriptionPadding);
+});
+
+/*************************************************
+******************location - one ****************
+*************************************************/
+document.addEventListener("DOMContentLoaded",()=>{
+    function resizeFairyStatue() {
+        document.querySelector(".location-text").style.paddingTop = (document.querySelector(".fairyStatue").clientHeight / 2 + 10) + "px";
+    }
+    document.querySelector(".fairyStatue").addEventListener("load",(e)=>{
+        resizeFairyStatue();
+    });
+    window.addEventListener("resize",()=>{
+        resizeFairyStatue();
+    })
+})
+/*************************************************
+******************Map - one ****************
+*************************************************/
+document.addEventListener("DOMContentLoaded",()=>{
+    const locationTotal = document.querySelectorAll(".locationCard").length;
+    let locationCount = 0;
+    const locationViewport = document.querySelector(".location-viewport");
+    const mapContainer = document.querySelector(".map-container");
+    let locationTimer = setInterval(SetLocationMovement,4000);
+
+    function SlideLocationLeft() {
+        locationCount = (locationCount + locationTotal - 1) % locationTotal;
+        locationViewport.style.transform = `translateX(-${locationCount * 100}%)`;
+    }
+    function SlideLocationRight() {
+        locationCount = (locationCount + 1) % locationTotal;
+        locationViewport.style.transform = `translateX(-${locationCount * 100}%)`;
+    }
+    function SetLocationMovement() {
+        SlideLocationRight();
+    }
+    function ResetLocationTimer() {
+        clearInterval(locationTimer);
+        locationTimer = setInterval(SetLocationMovement,4000);
+    }
+
+    document.querySelector(".location-left").addEventListener("click",(e)=>{
+        e.preventDefault();
+        SlideLocationLeft();
+        ResetLocationTimer();
+    });
+    document.querySelector(".location-next").addEventListener("click",(e)=>{
+        e.preventDefault();
+        SlideLocationRight();
+        ResetLocationTimer();
+    });
+
+    let mapTouchStart = null;
+    mapContainer.addEventListener("touchstart",(e)=>{
+        mapTouchStart = e.touches[0].clientX;
+    });
+    mapContainer.addEventListener("touchend",(e)=>{
+        const mapTouchEnd = e.changedTouches[0].clientX;
+        if (mapTouchEnd < mapTouchStart - 50) {
+            SlideLocationRight();
+            ResetLocationTimer();
+        }
+        else if (mapTouchEnd > mapTouchStart + 50) {
+            SlideLocationLeft();
+            ResetLocationTimer();
+        }
+    });
 })
