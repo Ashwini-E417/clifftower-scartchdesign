@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+        .main-popupContainer {
+            display: block;
+        }
+        .main-popupOverlay {
+            background: rgb(0,0,0,0.7);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+        .main-popupFlex {
+            display: flex;
+            gap: 0;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            flex-direction: column-reverse;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 90%;
+            transform: translate(-50%,-50%);
+        }
+        .main-popupLeftContainer {
+            flex: 0 0 50%;
+            width: 100%;
+            text-align: center;
+            background-color: #fff;
+            padding: 1rem;
+        }
+        .main-popupLogo {
+            width: 50%;
+            max-width: 250px;
+            height: auto;
+            display: block;
+            margin: 0 auto 1rem;
+        }
+        .main-popupHeading {
+            font-size: clamp(24px,5vw,35px);
+            color: #000;
+            margin: 1rem 0 0.5rem;
+        }
+        .main-popupSubheading {
+            font-size: 1rem;
+            color: #000;
+            margin-bottom: 2vh;
+        }
+        .popup-formGroup {
+            width: 100%;
+            margin-bottom: 2vh;
+        } 
+        .popup-inputName {
+             width: 100%;
+            padding: 2vh 2vw 2vh 11vw;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23999" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>');
+            background-repeat: no-repeat;
+            background-position: 15px center;
+            background-size: 18px;
+        }
+        .popup-PhoneContainer {
+            position: relative;
+        }
+        .popup-input-wrapper {
+            position: relative;
+            display: flex;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .phone-input-wrapper:focus-within {
+            border-color: #c8956d;
+            box-shadow: 0 0 0 3px rgba(200, 149, 109, 0.1);
+        }
+        .phone-Icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23999" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            z-index: 1;
+        }
+        .popup-select {
+            padding: 2vh 2vw 2vh 11vw; 
+            border: none;
+            background: #f8f8f8;
+            font-size: 16px;
+            color: #333;
+            min-width: 115px; /* Increased width to accommodate padding */
+            text-align: left;
+            outline: none;
+            border-right: 1px solid #e0e0e0;
+            appearance: none; /* Optional: for a cleaner look */
+        }
+        .popup-inputMobile {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            background: transparent;
+            font-size: 16px;
+            outline: none;
+        }
+        .phone-number::placeholder {
+            color: #999;
+        }
+        .main-popupCheckboxLabel {
+            font-size: 0.8rem;
+        }
+        .main-popupSubmitBtn {
+            width: 100%;
+            border-radius: 50px;
+            padding: 15px;
+            border: 0;
+            background: linear-gradient(90deg, rgba(153, 107, 85, 1) 3%, rgba(229, 171, 142, 1) 35%, rgba(229, 171, 142, 1) 48%, rgba(153, 107, 85, 1) 93% );
+            font-weight: 500;
+        }
+        .main-popupRightContainer {
+            flex: 0 0 50%;
+            width: 100%;
+            background: #815643;
+        }
+        .main-popupImage {
+            width: auto;
+            height: 100%;
+            display: block;
+            max-height: 30vh;
+            margin: 0 auto;
+        }
+        .main-popupCloseBtn {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            border: 0;
+        }
+        @media (min-width:600px) {
+            .main-popupFlex {
+                width: 50%;
+            }
+            .popup-inputName {
+                padding-left: 6vw;
+            }
+            .popup-select {
+                padding-left: 6vw;
+            }
+        }
+        @media (min-width:1100px) {
+            .main-popupFlex {
+                flex-direction: row;
+                width: 75%;
+            }
+            .main-popupLeftContainer{
+                width: 50%;
+            }
+            form {
+                padding: 1rem;
+            }
+            .popup-inputName {
+                padding-left: 4vw;
+            }
+            .popup-select {
+                padding-left: 4vw;
+            }
+            .main-popupImage {
+                width: 100%;
+                height: 100%;
+                max-height: 75vh;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    lfjifhljshfkH
+    <button class="mainpopuptrigger">Trigger </button>
+    <section>
+        <div class="main-popupContainer">
+            <div class="main-popupOverlay"></div>
+            <div class="main-popupFlex">
+                <div class="main-popupLeftContainer">
+                    <img src="assets/images/logo/modal-logo.png" alt="Logo of CliFF tower" loading="lazy" class="main-popupLogo" />
+                    <p class="main-popupHeading">Unlock Privilege with Rustomjee Developer</p>
+                    <p class="main-popupSubheading">Register now to access develop-direct offers</p>
+
+                    <form>
+                        <div class="popup-formGroup">
+                            <input type="text" placeholder="Enter Your Name" class="popup-inputName" required/>
+                        </div>
+                        <div class="popup-formGroup">
+                            <div class="popup-PhoneContainer">
+                                <div class="popup-input-wrapper">
+                                <div class="phone-Icon"></div>
+                                <select class="popup-select" required aria-label="Select Country Code">
+                                    <option value="+91" selected>India (+91)</option>
+                                </select>
+                                <input type="text" class="popup-inputMobile" placeholder="Mobile Number" required />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="popup-formGroup">
+                            <input type="checkbox" id="constent_checkbox" checked required/>
+                            <label for="constent_checkbox" class="main-popupCheckboxLabel">I consent to the use of provided data in accordance with the <a href="" rel="noopener noreferrer">Privacy Policy</a></label>
+                        </div>
+                        <input type="submit" value="Get An Offer" class="main-popupSubmitBtn" />
+                    </form>
+                </div>
+                <div class="main-popupRightContainer">
+                    <button aria-label="Close popup" class="main-popupCloseBtn">&times;</button>
+                    <img src="assets/images/popup/mainmodal.png" alt="Facility Of Cliff TOwer" loading="lazy" class="main-popupImage" />
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            const mainpopup = document.querySelector(".main-popupContainer");
+            function CloseMainPopup() {
+                mainpopup.style.display = "none";
+                document.body.style.overflowY = "visible";
+            }
+
+            function OpenMainPopup() {
+                mainpopup.style.display = "block";
+                document.body.style.overflowY = "hidden";
+            }
+
+            document.querySelector(".main-popupCloseBtn").addEventListener("click",(e)=>{
+                e.preventDefault();
+                CloseMainPopup();
+            });
+            document.querySelector(".main-popupOverlay").addEventListener("click",(e)=>{
+                e.preventDefault();
+                CloseMainPopup();
+            });
+
+            document.querySelectorAll(".mainpopuptrigger").forEach(element => {
+                element.addEventListener("click",(e)=>{
+                    e.preventDefault();
+                    OpenMainPopup();
+                })
+            })
+        });
+    </script>
+</body>
+</html>

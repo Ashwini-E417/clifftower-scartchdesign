@@ -1,41 +1,41 @@
 document.addEventListener('DOMContentLoaded', () => {
             const burgerMenu = document.querySelectorAll('.menuBtn');
-            const navModal = document.querySelector('#navModal');
+            const navModal = document.querySelectorAll('#navModal');
             const changeMenuIcon = document.querySelectorAll(".changeMenuIcon");
 
-            navModal.style.top = (document.querySelector("header").clientHeight + 10) + "px";
+            navModal[0].style.top = (document.querySelector("header").clientHeight + 10) + "px";
             
             window.addEventListener("resize",()=>{
-                navModal.style.top = (document.querySelector("header").clientHeight + 10) + "px";
+                navModal[0].style.top = (document.querySelector("header").clientHeight + 10) + "px";
             })
             
-            const toggleMenu = () => {
-                navModal.classList.toggle('active');
-                if  (navModal.classList.contains("active")) {
-                    changeMenuIcon.src = "assets/images/icons/closeBtn.png";
+            const toggleMenu = (index) => {
+                navModal[index].classList.toggle('active');
+                if  (navModal[index].classList.contains("active")) {
+                    changeMenuIcon[index].src = "assets/images/icons/closeBtn.png";
                 }
                 else {
-                    changeMenuIcon.src = "assets/images/icons/menubtn.svg";
+                    changeMenuIcon[index].src = "assets/images/icons/menubtn.svg";
                 }
             };
 
             burgerMenu.forEach((element,index)=>{
                 element.addEventListener('click', ()=>{
-                    toggleMenu();
+                    toggleMenu(index);
                 });
             });
 
             //temparory commeted as sections not defined
-            // navModal.forEach((element,index)=>{
-            //     element.addEventListener('click', (event) => {
-            //         const targetid = event.target.getAttribute("href").substring(1);
-            //         const target = document.querySelectorAll(`#${targetid}`)[index];
-            //         target.scrollIntoView({
-            //             behavior: 'smooth',
-            //         })
-            //     toggleMenu(index);
-            // });
-            // })
+            navModal.forEach((element,index)=>{
+                element.addEventListener('click', (event) => {
+                    const targetid = event.target.getAttribute("href").substring(1);
+                    const target = document.querySelectorAll(`#${targetid}`)[index];
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                    })
+                toggleMenu(index);
+            });
+            })
         });
 
 //*******************************************
@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     let floorCount = 0;
     const floorviewport = document.querySelector(".floorCarouselViewport");
     const floorContainer = document.querySelector(".floor-container");
-    const floorIndicator = document.querySelector(".floorIndicator");
+    const floorIndicator = document.querySelector(".floorMobIndicator");
     let floorTimer = setInterval(SetFloorMovement,5000);
 
     function SlideFloorLeft() {
@@ -171,12 +171,12 @@ document.addEventListener("DOMContentLoaded",()=>{
         floorTimer = setInterval(SetFloorMovement,5000);
     }
 
-    document.querySelector(".floor-left").addEventListener("click",(e)=>{
+    document.querySelector(".floormob-left").addEventListener("click",(e)=>{
         e.preventDefault();
         SlideFloorLeft();
         ResetFloorTimer();
     });
-    document.querySelector(".floor-right").addEventListener("click",(e)=>{
+    document.querySelector(".floormob-right").addEventListener("click",(e)=>{
         e.preventDefault();
         SlideFloorRight();
         ResetFloorTimer();
@@ -204,9 +204,9 @@ document.addEventListener("DOMContentLoaded",()=>{
 ******************gallery - JS ****************
 *************************************************/
 document.addEventListener("DOMContentLoaded",()=>{
-    const galleryTotal = document.querySelectorAll(".galleryCard").length;
+    const galleryTotal = document.querySelectorAll(".gallery-viewportMob .galleryCard").length;
     let galleryCount = 0;
-    const galleryViewport = document.querySelector(".gallery-viewport");
+    const galleryViewport = document.querySelector(".gallery-viewportMob");
     const galleryContainer = document.querySelector(".galleryContainer");
     const galleryIndicator = document.querySelector(".galleryIndicator");
     let galleryTimer = setInterval(SetGalleryMovement,5000);
@@ -255,9 +255,9 @@ document.addEventListener("DOMContentLoaded",()=>{
         }
     });
 
-    document.querySelector(".gallery-decorationTwo").addEventListener("load",galleryDescriptionPadding);
+    document.querySelector(".gallery-decorationTwoMob").addEventListener("load",galleryDescriptionPadding);
     function galleryDescriptionPadding() {         
-        const decoheight = document.querySelector(".gallery-decorationTwo").scrollHeight / 2;
+        const decoheight = document.querySelector(".gallery-decorationTwoMob").clientHeight / 2;
         document.querySelector(".galleryDescription").style.paddingTop = decoheight + "px";
     }
     window.addEventListener("resize",galleryDescriptionPadding);
@@ -330,3 +330,56 @@ document.addEventListener("DOMContentLoaded",()=>{
         }
     });
 })
+
+
+
+//sticky header JS
+    function resizeHeader() {
+        const header = document.querySelectorAll('header');
+let lastScroll = 0;
+
+// const bannerHeight = document.querySelector('.bannerContainer').offsetHeight;
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+
+    if (window.innerWidth>1099) {
+        // We are still in or near the banner area
+        if (currentScroll <= 50) {
+            // At very top â†’ always show
+            header[1].classList.remove('hide');
+        } 
+        else if (currentScroll > lastScroll) {
+            // Scrolling down in banner area â†’ hide
+            header[1].classList.add('hide');
+        } 
+        else {
+            // Scrolling up in banner area â†’ show
+            header[1].classList.remove('hide');
+        }
+    }
+    else {
+        if (currentScroll <= 50) {
+            // At very top â†’ always show
+            header[0].classList.remove('hide');
+        } 
+        else if (currentScroll > lastScroll) {
+            // Scrolling down in banner area â†’ hide
+            header[0].classList.add('hide');
+        } 
+        else {
+            // Scrolling up in banner area â†’ show
+            header[0].classList.remove('hide');
+        }
+    }
+    lastScroll = currentScroll;
+});
+}
+window.addEventListener("resize",(e)=>{
+    e.preventDefault();
+    resizeHeader();
+});
+window.addEventListener("load",(e)=>{
+    e.preventDefault();
+    resizeHeader();
+});

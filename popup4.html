@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        button {
+            all: unset;
+            cursor: pointer;
+        }
+    </style>
+    <style>
+        .architect-popupMobile {
+            display: block;
+        }
+        .architect-popupOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgb(0, 0, 0, 0.7);
+        }
+        .architect-carouselPopupContainer {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 90%;
+            background: burlywood;
+            overflow: hidden;
+        }
+        .architect-popupClose {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: rgb(255, 255, 255, 0.9);
+            border-radius: 50%;
+            cursor: pointer;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+        }
+        .architect-popupViewport {
+            display: flex;
+            gap: 0;
+            flex-direction: row;
+        } 
+        .architect-popupCard {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            flex: 0 0 100%;
+        }
+        .architect-popupImage {
+            height: 35vh;
+            width: 100%;
+            display: block;
+        }
+        .architect-popupDescriptionContainer {
+            padding: 1rem;
+        }
+        .architect-popupLogoContainer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .architectPopupLogo {
+            flex: 0 0 30%;
+            width: 30%;
+            height: auto;
+            display: block;
+            max-width: 100px;
+        }
+        .architect-popupArrowIndicator {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: row;
+        }
+        .architect-popupArrowContainer {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-direction: row;
+        }
+        .architect-popupIndicator {
+            font-size: clamp(100px,8vw,140px);
+        }
+        @media (min-width:600px) {
+            .architect-carouselPopupContainer {
+                width: 50%;
+            }
+        }
+        @media (min-width:1100px) {
+            .architect-popupMobile {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="architect-popupTrigger">TRigger</button>
+    <section>
+        <div class="architect-popupMobile">
+            <div class="architect-popupOverlay"></div>
+            <div class="architect-carouselPopupContainer">
+                <button class="architect-popupClose" aria-label="Close architect details">&times;</button>
+                <div class="architect-popupViewport">
+                    <div class="architect-popupCard">
+                        <img src="assets/images/architect/sanjay.jpg" alt="Architect of Cliff Tower" loading="lazy" class="architect-popupImage"/>
+                        <div class="architect-popupDescriptionContainer">
+                            <p class="architect-popupDescription">Sanjay Puri is one of India's most celebrated architects on the international stage, with an engagement of more than 360 awards from global platforms such as the World Architecture Festival, LEAF (UK), and Architizer A+ Awards. Sanjay Puri Architects experiment with bold geometries and climate sensitivity, juxtaposing sculptural form with practical solutions.</p>
+                            <div class="architect-popupLogoContainer">
+                                <img src="assets/images/icons/A+award.png" alt="Awards and Recognition" loading="lazy" class="architectPopupLogo" />
+                                <img src="assets/images/icons/ABBLEAF.png" alt="Awards and Recognition" loading="lazy" class="architectPopupLogo" />
+                                <img src="assets/images/icons/WAF.png" alt="Awards and Recognition" loading="lazy" class="architectPopupLogo" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="architect-popupCard">
+                        <img src="assets/images/architect/sanjay.jpg" alt="Architect of Cliff Tower" loading="lazy" class="architect-popupImage"/>
+                        <div class="architect-popupDescriptionContainer">
+                            <p class="architect-popupDescription">Sanjay Puri is one of India's most celebrated architects on the international stage, with an engagement of more than 360 awards from global platforms such as the World Architecture Festival, LEAF (UK), and Architizer A+ Awards. Sanjay Puri Architects experiment with bold geometries and climate sensitivity, juxtaposing sculptural form with practical solutions.</p>
+                            <!-- <div class="architect-popupLogoContainer">
+                                <img src="assets/images/icons/A+award.png" alt="Awards and Recognition" loading="lazy" class="architectPopupLogo" />
+                                <img src="assets/images/icons/ABBLEAF.png" alt="Awards and Recognition" loading="lazy" class="architectPopupLogo" />
+                                <img src="assets/images/icons/WAF.png" alt="Awards and Recognition" loading="lazy" class="architectPopupLogo" />
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="architect-popupCard">
+                        <img src="assets/images/architect/sanjay.jpg" alt="Architect of Cliff Tower" loading="lazy" class="architect-popupImage"/>
+                        <div class="architect-popupDescriptionContainer">
+                            <p class="architect-popupDescription">Kunal Maniar is a leading landscape architect in India, celebrated for his work on high-end residential developments. He enhances luxury villas, gated communities, and urban sanctuaries, skillfully blending design and nature. His esteemed clientele includes Mukesh and Nita Ambani, Shah Rukh and Gauri Khan, Ranbir Kapoor and Alia Bhatt, and MS and Sakshi Dhoni.</p>
+                            <div class="architect-popupLogoContainer">
+                                <img src="assets/images/icons/A+award.png" alt="Awards and Recognition" loading="lazy" class="architectPopupLogo" />
+                                <img src="assets/images/icons/ABBLEAF.png" alt="Awards and Recognition" loading="lazy" class="architectPopupLogo" />
+                                <img src="assets/images/icons/WAF.png" alt="Awards and Recognition" loading="lazy" class="architectPopupLogo" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="architect-popupArrowIndicator">
+                    <div class="architect-popupArrowContainer">
+                        <button class="architect-popupLeft" aria-label="View Previous Architect"><img src="assets/images/icons/leftArrow.png" alt="Previous" loading="lazy" width="40" height="40" /></button>
+                        <button class="architect-popupRight" aria-label="View Next Architect"><img src="assets/images/icons/rightArrow.png" alt="Next" loading="lazy" width="40" height="40" /></button>
+                    </div>
+                    <p class="architect-popupIndicator">1</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            const architectPopupContainer = document.querySelector(".architect-popupMobile");
+            const architectpopupViewport = document.querySelector(".architect-popupViewport");
+            const architectpopupTotal = document.querySelectorAll(".architect-popupCard").length;
+            let architectpopupCount = 0;
+            const architectpopupIndicator = document.querySelector(".architect-popupIndicator");
+            let architectpopupTimer = null;
+        
+            function PopupArchitectSlideLeft() {
+                architectpopupCount = (architectpopupCount + architectpopupTotal - 1)% architectpopupTotal;
+                architectpopupViewport.style.transform = `translateX(-${architectpopupCount*100}%)`;
+                architectpopupIndicator.innerHTML = architectpopupCount + 1;
+            }
+
+            function PopupArchitectSlideRight() {
+                architectpopupCount = (architectpopupCount + 1)% architectpopupTotal;
+                architectpopupViewport.style.transform = `translateX(-${architectpopupCount*100}%)`;
+                architectpopupIndicator.innerHTML = architectpopupCount + 1;
+            }
+
+            function ArchitectPopupKeyevent(e) {
+                if (e.key=="ArrowLeft") {
+                    PopupArchitectSlideLeft();
+                    ResetArchitectPopupTimer();
+                }
+                else if (e.key == "ArrowRight") {
+                    PopupArchitectSlideRight();
+                    ResetArchitectPopupTimer();
+                }
+                else if (e.key == "Escape") {CloseArchitectPopup();}
+            }
+
+            function CloseArchitectPopup() {
+                architectPopupContainer.style.display = "none";
+                document.body.style.overflowY = "visible";
+                document.removeEventListener("keydown",ArchitectPopupKeyevent);
+                clearInterval(architectpopupTimer);
+            }
+
+            function OpenArchitectPopup() {
+                architectPopupContainer.style.display = "block";
+                document.body.style.overflowY = "hidden";
+                document.addEventListener("keydown",ArchitectPopupKeyevent);
+                architectpopupTimer = setInterval(SetArchitectPopupTimer, 5000);
+            }
+
+            function ResetArchitectPopupTimer() {
+                clearInterval(architectpopupTimer);
+                architectpopupTimer = setInterval(SetArchitectPopupTimer,5000);
+            }
+
+            function SetArchitectPopupTimer() {
+                PopupArchitectSlideRight();
+            }
+            document.querySelector(".architect-popupLeft").addEventListener("click",(e)=>{
+                e.preventDefault();
+                PopupArchitectSlideLeft();
+                ResetArchitectPopupTimer();
+            });
+
+            document.querySelector(".architect-popupRight").addEventListener("click",(e)=>{
+                e.preventDefault();
+                PopupArchitectSlideRight();
+                ResetArchitectPopupTimer();
+            })
+        
+            document.querySelectorAll(".architect-popupTrigger").forEach(element => {
+                element.addEventListener("click",(e)=>{
+                    e.preventDefault();
+                    OpenArchitectPopup();
+                });
+            });
+
+            document.querySelector(".architect-popupClose").addEventListener("click",(e)=>{
+                e.preventDefault();
+                CloseArchitectPopup();
+            })
+
+            document.querySelector(".architect-popupOverlay").addEventListener("click",(e)=>{
+                e.preventDefault();
+                CloseArchitectPopup();
+            })
+
+            let popupArchitectTouchStart = null;
+            architectPopupContainer.addEventListener("touchstart",(e)=>{
+                popupArchitectTouchStart = e.touches[0].clientX;
+            });
+            architectPopupContainer.addEventListener("touchend",(e)=>{
+                const popupArchitectTouchEnd = e.changedTouches[0].clientX;
+                if (popupArchitectTouchEnd < popupArchitectTouchStart - 50){
+                    PopupArchitectSlideRight();
+                    ResetArchitectPopupTimer();
+                }
+                else if (popupArchitectTouchEnd > popupArchitectTouchStart + 50) {
+                    PopupArchitectSlideLeft();
+                    ResetArchitectPopupTimer();
+                }
+            })
+
+        });
+    </script>
+</body>
+</html>

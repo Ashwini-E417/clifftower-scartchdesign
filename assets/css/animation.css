@@ -1,0 +1,21 @@
+.star {
+      position: fixed;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: starfloat linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes starfloat {
+      from {
+        transform: translateY(100vh);
+        opacity: 0.8;
+      }
+      to {
+        transform: translateY(-10vh);
+        opacity: 0.2;
+      }
+    }

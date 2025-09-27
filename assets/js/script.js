@@ -1,4 +1,3 @@
-document.addEventListener("DOMContentLoaded",()=>{
     const bannerLeft = document.querySelector(".bannerLeft");
     const bannerRight = document.querySelector(".bannerRight");
     const bannerLeftMask = document.querySelector(".bannerLeftMask");
@@ -22,34 +21,32 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     document.querySelector(".bannerScrollArrow").addEventListener("click",(e)=>{
         e.preventDefault();
-        document.querySelector(".belowBannerImage").scrollIntoView({
+        document.querySelector(".belowBannerImageDesk").scrollIntoView({
             behavior:"smooth",
         })
     })
-});
 
 //*******************************************
 // ****************navbar Js ****************
 // *************************************** */
-document.addEventListener('DOMContentLoaded', () => {
-            const burgerMenu = document.querySelectorAll('.menuBtn');
-            const navModal = document.querySelectorAll('#navModal');
-            const changeMenuIcon = document.querySelectorAll(".changeMenuIcon");
-            const toggleMenu = (index) => {
-                navModal[index].classList.toggle('active');
-                if  (navModal[index].classList.contains("active")) {
-                    changeMenuIcon[index].src = "assets/images/icons/closeBtn.png";
-                }
-                else {
-                    changeMenuIcon[index].src = "assets/images/icons/menubtn.svg";
-                }
-            };
+            // const burgerMenu = document.querySelectorAll('.menuBtn');
+            // const navModal = document.querySelectorAll('#navModal');
+            // const changeMenuIcon = document.querySelectorAll(".changeMenuIcon");
+            // const toggleMenu = (index) => {
+            //     navModal[index].classList.toggle('active');
+            //     if  (navModal[index].classList.contains("active")) {
+            //         changeMenuIcon[index].src = "assets/images/icons/closeBtn.png";
+            //     }
+            //     else {
+            //         changeMenuIcon[index].src = "assets/images/icons/menubtn.svg";
+            //     }
+            // };
 
-            burgerMenu.forEach((element,index)=>{
-                element.addEventListener('click', ()=>{
-                    toggleMenu(index);
-                });
-            });
+            // burgerMenu.forEach((element,index)=>{
+            //     element.addEventListener('click', ()=>{
+            //         toggleMenu(index);
+            //     });
+            // });
 
             //temparory commeted as sections not defined
             // navModal.forEach((element,index)=>{
@@ -62,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
             //     toggleMenu(index);
             // });
             // })
-        });
 
 
 
@@ -70,10 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
 // ****************architech Js ****************
 // *************************************** */
 
-document.addEventListener("DOMContentLoaded",()=>{
     document.querySelector(".architect-knowMore").addEventListener("click",(e)=>{
         e.preventDefault();
-        document.querySelector(".architect-sectionTwo").scrollIntoView({
+        document.querySelector(".architect-sectionTwoDesk").scrollIntoView({
             behavior:"smooth",
         })
 
@@ -91,6 +86,7 @@ document.addEventListener("DOMContentLoaded",()=>{
                 e.preventDefault();
                 architectcarouselCount = (architectcarouselCount + architectTotal - 1) % architectTotal;
                 architectCarouselSlide();
+                ResetArchitectDesktop();
             })
         });
 
@@ -99,23 +95,26 @@ document.addEventListener("DOMContentLoaded",()=>{
                 e.preventDefault();
                 architectcarouselCount = (architectcarouselCount + 1) % architectTotal;
                 architectCarouselSlide();
+                ResetArchitectDesktop();
             })
-        })
+        });
 
         function architectHandleKey(e) {
             if (e.key == "ArrowLeft") {
                 architectcarouselCount = (architectcarouselCount + architectTotal - 1) % architectTotal;
                 architectCarouselSlide();
+                ResetArchitectDesktop();
             }
             else if (e.key == "ArrowRight") {
                 architectcarouselCount = (architectcarouselCount + 1) % architectTotal;
                 architectCarouselSlide();
+                ResetArchitectDesktop();
             }
         }
 
-        const architectsection = document.querySelector(".architect-sectionTwo");
+        const architectsection = document.querySelector(".architect-sectionTwoDesk");
 
-        const observer = new IntersectionObserver((entries)=>{
+        const observer1 = new IntersectionObserver((entries)=>{
             entries.forEach(entry =>{
             if (entry.isIntersecting) {
                 document.addEventListener("keydown",architectHandleKey);
@@ -127,15 +126,23 @@ document.addEventListener("DOMContentLoaded",()=>{
             
         },{threshold:0.3});
 
-        observer.observe(architectsection);
+        observer1.observe(architectsection);
 
-})
+        let deskArchitectTimer = setInterval(SetArchitectSlideDeskTop,5000);
 
+        function SetArchitectSlideDeskTop() {
+            architectcarouselCount = (architectcarouselCount + 1) % architectTotal;
+            architectCarouselSlide();
+        }
+
+        function ResetArchitectDesktop() {
+            clearInterval(deskArchitectTimer);
+            deskArchitectTimer = setInterval(SetArchitectSlideDeskTop,5000);
+        }
 
 //****************************************
 // ******************Highlight JS-*******
 // *********************************************** */
-document.addEventListener("DOMContentLoaded",()=>{
 
     const highlightTotal = document.querySelectorAll(".highlight-carouselCard").length;
     let highlightCount = 0;
@@ -155,6 +162,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         element.addEventListener("click",(e)=>{
             e.preventDefault();
             ScrollHighlightLeft();
+            ResetHighlightDesktopTimer();
         })
     })
 
@@ -162,20 +170,23 @@ document.addEventListener("DOMContentLoaded",()=>{
         element.addEventListener("click",(e)=>{
             e.preventDefault();
             ScrollHighlightRight();
+            ResetHighlightDesktopTimer();
         })
     })
 
     function HighlightKeyHandle(e) {
         if (e.key=="ArrowLeft") {
             ScrollHighlightLeft();
+            ResetHighlightDesktopTimer();
         } else if (e.key == "ArrowRight") {
             ScrollHighlightRight();
+            ResetHighlightDesktopTimer();
         }
     }
 
     const highlightContainer = document.querySelector(".project-highlightTwo");
 
-    const observer = new IntersectionObserver((entries)=>{
+    const observer2 = new IntersectionObserver((entries)=>{
         entries.forEach(entry=>{
             if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
                 document.addEventListener("keydown", HighlightKeyHandle);
@@ -186,13 +197,22 @@ document.addEventListener("DOMContentLoaded",()=>{
         })
     },{threshold:0.3})
 
-    observer.observe(highlightContainer);
-})
+    observer2.observe(highlightContainer);
+
+    let highlightDesktopTimer = setInterval(HighlightDesktopSlide,5000);
+
+    function HighlightDesktopSlide() {
+        ScrollHighlightRight();
+    }
+
+    function ResetHighlightDesktopTimer() {
+        clearInterval(highlightDesktopTimer);
+        highlightDesktopTimer = setInterval(HighlightDesktopSlide,5000);
+    }
 
 //****************************************
 // ******************floor Plan JS-*******
 // *********************************************** */
-document.addEventListener("DOMContentLoaded",()=>{
     const floorTotal = document.querySelectorAll(".floorcard").length;
     let floorCount = 0;
     const floorViewPort = document.querySelector(".floorplan-CarouselViewport");
@@ -210,15 +230,17 @@ document.addEventListener("DOMContentLoaded",()=>{
     document.querySelector(".floor-left").addEventListener("click",(e)=>{
         e.preventDefault();
         SlideFloorLeft();
+        ResetFloorDesktopTimer();
     });
     document.querySelector(".floor-right").addEventListener("click",(e)=>{
         e.preventDefault();
         SlideFloorRight();
+        ResetFloorDesktopTimer();
         })
                 
     const floorContainer = document.querySelector(".floorPlanContainer");
 
-    const observer = new IntersectionObserver(entries=>{
+    const observer3 = new IntersectionObserver(entries=>{
         entries.forEach(entry => {
             if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
                 document.addEventListener("keydown",floorKeyHandle);
@@ -228,58 +250,73 @@ document.addEventListener("DOMContentLoaded",()=>{
             }
         })
     },{threshold:0.3})
-    observer.observe(floorContainer);
+    observer3.observe(floorContainer);
 
     function floorKeyHandle(e) {
         if (e.key == "ArrowLeft") {
             SlideFloorLeft();
+            ResetFloorDesktopTimer();
         }
         else if (e.key == "ArrowRight") {
             SlideFloorRight();
+            ResetFloorDesktopTimer();
         }
     }
-})
+
+    let floorDeskTimer = setInterval(SlideDeskFloorPlan,5000);
+
+    function SlideDeskFloorPlan() {
+        SlideFloorRight();
+    }
+
+    function ResetFloorDesktopTimer () {
+        clearInterval(floorDeskTimer)
+        floorDeskTimer = setInterval(SlideDeskFloorPlan,5000);
+    }
 
 //****************************************
 // ******************Gallery JS-*******
 // *********************************************** */
-document.addEventListener("DOMContentLoaded",()=>{
-    const galleryTotal = document.querySelectorAll(".galleryCard").length;
+    const galleryTotal = document.querySelectorAll(".gallery-leftContainer .galleryCard").length;
     let galleryCount = 0;
-    const galleryViewport = document.querySelector(".gallery-viewport");
-    const galleryContainer = document.querySelector(".galleryContainer");
+    const galleryViewport = document.querySelector(".gallery-leftContainer .gallery-viewport");
+    const galleryContainer = document.querySelector(".galleryContainerDesk");
     const galleryIndicator = document.querySelector(".gallery-indicator");
 
-    function SlideGalleryLeft() {
+    function SlideGalleryLeftDesk() {
         galleryCount = (galleryCount + galleryTotal - 1) % galleryTotal;
         galleryViewport.style.transform = `translateX(-${galleryCount*100}%)`;
         galleryIndicator.innerHTML = galleryCount + 1;
     }
 
-    function SlideGalleryRight() {
+    function SlideGalleryRightDesk() {
         galleryCount = (galleryCount + 1) % galleryTotal;
         galleryViewport.style.transform = `translateX(-${galleryCount*100}%)`;
         galleryIndicator.innerHTML = galleryCount + 1;
     }
     function galleryKeyHandle(e) {
         if (e.key == "ArrowLeft") {
-            SlideGalleryLeft();
+            SlideGalleryLeftDesk();
+            ResetGalleryDesktopTimer();
         }
         else if (e.key == "ArrowRight") {
-            SlideGalleryRight();
+            SlideGalleryRightDesk();
+            ResetGalleryDesktopTimer();
         }
     }
 
-    document.querySelector(".gallery-left").addEventListener("click",(e)=>{
+    document.querySelector(".galleryDesk-left").addEventListener("click",(e)=>{
         e.preventDefault();
-        SlideGalleryLeft();
+        SlideGalleryLeftDesk();
+        ResetGalleryDesktopTimer();
     });
 
-    document.querySelector(".gallery-right").addEventListener("click",(e)=>{
+    document.querySelector(".galleryDesk-right").addEventListener("click",(e)=>{
         e.preventDefault();
-        SlideGalleryRight();
+        SlideGalleryRightDesk();
+        ResetGalleryDesktopTimer();
     })
-    const observer = new IntersectionObserver(entries =>{
+    const observer4 = new IntersectionObserver(entries =>{
         entries.forEach(entry=>{
             if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
                 document.addEventListener("keydown",galleryKeyHandle);
@@ -290,15 +327,25 @@ document.addEventListener("DOMContentLoaded",()=>{
         })
     },{threshold:0.3});
 
-    observer.observe(galleryContainer);
-})
+    observer4.observe(galleryContainer);
+
+    let galleryDeskTimer = setInterval(SetGallerySlideDesk, 5000);
+
+    function SetGallerySlideDesk() {
+        SlideGalleryRightDesk();
+    }
+
+    function ResetGalleryDesktopTimer() {
+        clearInterval(galleryDeskTimer);
+        galleryDeskTimer = setInterval(SetGallerySlideDesk, 5000);
+    }
+
 //****************************************
 // ******************location JS-*******
 // *********************************************** */
-document.addEventListener("DOMContentLoaded",()=>{
     const locationTotal = document.querySelectorAll(".location-card").length;
     let locationCount = 0;
-    const locationViewport = document.querySelector(".location-viewport");
+    const locationViewport = document.querySelector(".location-viewportDesk");
     const locationContainer = document.querySelector(".location-ContainerTwo");
 
     function SlideLocationLeft() {
@@ -311,25 +358,29 @@ document.addEventListener("DOMContentLoaded",()=>{
         locationViewport.style.transform = `translateX(-${locationCount*100}%)`;
     }
 
-    document.querySelector(".location-left").addEventListener("click",(e)=>{
+    document.querySelector(".location-leftDesk").addEventListener("click",(e)=>{
         e.preventDefault();
         SlideLocationLeft();
+        ResetLocationDeskTimer();
     })
-    document.querySelector(".location-right").addEventListener("click",(e)=>{
+    document.querySelector(".location-rightDesk").addEventListener("click",(e)=>{
         e.preventDefault();
         SlideLocationRight();
+        ResetLocationDeskTimer();
     })
 
     function locationKeyHandle(e) {
         if (e.key=="ArrowLeft") {
             SlideLocationLeft();
+            ResetLocationDeskTimer();
         }
         else if (e.key=="ArrowRight") {
             SlideLocationRight();
+            ResetLocationDeskTimer();
         }
     }
 
-    const observer = new IntersectionObserver((entries)=>{
+    const observer5 = new IntersectionObserver((entries)=>{
         entries.forEach(entry =>{
             if (entry.isIntersecting && entry.intersectionRatio>0.3) {
                 document.addEventListener("keydown",locationKeyHandle);
@@ -338,5 +389,15 @@ document.addEventListener("DOMContentLoaded",()=>{
             }
         })
     },{threshold:0.3})
-    observer.observe(locationContainer);
-})
+    observer5.observe(locationContainer);
+
+    let locationDeskTimer = setInterval(SetLocationMoveDesk, 5000);
+    
+    function SetLocationMoveDesk() {
+        SlideLocationRight();
+    }
+
+    function ResetLocationDeskTimer() {
+        clearInterval(locationDeskTimer);
+        locationDeskTimer = setInterval(SetLocationMoveDesk, 5000);
+    }

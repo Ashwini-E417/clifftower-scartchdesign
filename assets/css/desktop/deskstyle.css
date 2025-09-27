@@ -22,6 +22,8 @@ header {
     border-bottom: 1px solid #ddd;
     z-index: 100;
     background: linear-gradient(159deg, rgba(6, 22, 46, 0.2) 0%, rgba(6, 22, 46, 0.8) 50%, rgba(6, 22, 46, 0.2) 100% );
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 .navbar {
     width: 100%;
@@ -49,6 +51,7 @@ header {
     top: 50%;
     transform: translateY(-50%);
     gap: 1rem;
+    align-items: center;
 }
 .requestCallBackBtn {
     background: linear-gradient(90deg, rgba(153, 107, 85, 1) 3%, rgba(229, 171, 142, 1) 35%, rgba(229, 171, 142, 1) 48%, rgba(153, 107, 85, 1) 93% );
@@ -179,7 +182,7 @@ header {
     pointer-events: none;
 }
 
-.belowBannerImage {
+.belowBannerImageDesk {
     height: 100vh;
     width: 100vw;
     object-fit: cover;
@@ -293,7 +296,7 @@ header {
 ******************Architect - two ****************
 *************************************************/
 
-.architect-sectionTwo {
+.architect-sectionTwoDesk {
     display: flex;
     justify-content: space-between;
     padding: 0 5rem;
@@ -311,6 +314,7 @@ header {
     display: flex;
     align-items: center;
     flex-direction: row;
+    transition: transform 1.4s cubic-bezier(0.86, 0, 0.07, 1);
 }
 .architect-carouselCard {
     flex: 0 0 100%;
@@ -490,6 +494,7 @@ header {
     display: flex;
     height: 100%;
     width: 100%;
+    transition: transform 1.4s cubic-bezier(0.86, 0, 0.07, 1);
 }
 .highlight-carouselCard {
     flex: 0 0 100%;
@@ -499,8 +504,16 @@ header {
     flex-direction: row;
     width: 100%;
 }
+.highlight-carouselCard:nth-child(3n+1) {
+    background: linear-gradient(90deg, rgba(153, 107, 85, 1) 3%, rgba(229, 171, 142, 1) 48%, rgba(153, 107, 85, 1) 93%);
+}
+.highlight-carouselCard:nth-child(3n+2) {
+    background: linear-gradient(90deg, rgba(85, 153, 133, 1) 3%, rgba(142, 229, 199, 1) 48%, rgba(85, 153, 133, 1) 93%);
+}
+.highlight-carouselCard:nth-child(3n+3) {
+    background: linear-gradient(90deg, rgba(153, 85, 99, 1) 3%, rgba(229, 142, 163, 1) 48%, rgba(153, 85, 99, 1) 93%);
+}
 .highlight-cardLeft {
-    background-color: burlywood;
     flex: 0 0 50%;
     height: 100%;
     display: flex;
@@ -593,6 +606,7 @@ header {
     display: flex;
     gap: 0;
     flex-direction: row;
+    transition: transform 1.4s cubic-bezier(0.86, 0, 0.07, 1);
 }
 .floorcard {
     flex: 0 0 100%;
@@ -663,7 +677,7 @@ header {
     display: block;
 }
 
-.galleryContainer {
+.galleryContainerDesk {
     padding: 5% 5rem;
     width: 100vw;
     height: 100vh;
@@ -686,6 +700,7 @@ header {
     gap: 0;
     flex-direction: row;
     height: 100%;
+    transition: transform 1.4s cubic-bezier(0.86, 0, 0.07, 1);
 }
 .galleryCard {
     flex: 0 0 100%;
@@ -841,18 +856,28 @@ header {
     margin-bottom: 3%;
     overflow: hidden;
 }
-.location-viewport {
+.location-viewportDesk {
     width: 100%;
     height: 100%;
     display: flex;
     gap: 0;
     flex-direction: row;
+    transition: transform 1.4s cubic-bezier(0.86, 0, 0.07, 1);
 }
 .location-card {
     flex: 0 0 100%;
     position: relative;
     background-color: burlywood;
     padding: 1rem;
+}
+.location-card:nth-child(3n+1) {
+    background: linear-gradient(90deg, rgba(153, 107, 85, 1) 3%, rgba(229, 171, 142, 1) 48%, rgba(153, 107, 85, 1) 93%);
+}
+.location-card:nth-child(3n+2) {
+    background: linear-gradient(90deg, rgba(85, 153, 133, 1) 3%, rgba(142, 229, 199, 1) 48%, rgba(85, 153, 133, 1) 93%);
+}
+.location-card:nth-child(3n+3) {
+    background: linear-gradient(90deg, rgba(153, 85, 99, 1) 3%, rgba(229, 142, 163, 1) 48%, rgba(153, 85, 99, 1) 93%);
 }
 .location-text {
     color:#000;
@@ -962,6 +987,27 @@ header {
 .footer-container {
     padding: 5% 5rem;
     text-align: center;
+}
+.qrSection {
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+}
+.footer-infoContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: fit-content;
+    margin: 0 auto 1rem;
+}
+.footer-info {
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
 }
 .footer-linkContainer {
     color: var(--rosegold-color);

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/common.css">
+    <style>
+        
+        .floor-popupContainer {
+            display: block;
+        }
+        .floor-popupOverlay {
+            background: rgb(0,0,0,0.7);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+        .floor-popupFlex {
+            display: flex;
+            gap: 0;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            flex-direction: column-reverse;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 90%;
+            transform: translate(-50%,-50%);
+        }
+        .floor-popupLeftContainer {
+            flex: 0 0 50%;
+            width: 100%;
+            text-align: center;
+            background-color: #fff;
+            padding: 1rem;
+        }
+        .floor-popupLogo {
+            width: 50%;
+            max-width: 250px;
+            height: auto;
+            display: block;
+            margin: 0 auto 1rem;
+        }
+        .floor-popupHeading {
+            font-size: clamp(24px,5vw,35px);
+            color: #000;
+            margin: 1rem 0 0.5rem;
+        }
+        .floor-popupSubheading {
+            font-size: 1rem;
+            color: #000;
+            margin-bottom: 2vh;
+        }        
+        .floor-popupCheckboxLabel {
+            font-size: 0.8rem;
+        }
+        .floor-popupSubmitBtn {
+            width: 100%;
+            border-radius: 50px;
+            padding: 15px;
+            border: 0;
+            background: linear-gradient(90deg, rgba(153, 107, 85, 1) 3%, rgba(229, 171, 142, 1) 35%, rgba(229, 171, 142, 1) 48%, rgba(153, 107, 85, 1) 93% );
+            font-weight: 500;
+        }
+        .floor-popupRightContainer {
+            flex: 0 0 50%;
+            width: 100%;
+            background: #815643;
+            height: -webkit-fill-available;
+            display: none;
+            padding: 1rem;
+            color: #fff;
+        }
+        .floor-popupCloseBtn {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            border: 0;
+        }
+        @media (min-width:600px) {
+            .floor-popupFlex {
+                width: 50%;
+            }
+        }
+        @media (min-width:1100px) {
+            .floor-popupFlex {
+                flex-direction: row;
+                width: 75%;
+            }
+            .floor-popupLeftContainer{
+                width: 50%;
+            }     
+            .floor-popupRightContainer {
+                display: block;
+            }   
+            .floor-rightHeading {
+                text-transform: uppercase;
+                font-size: clamp(24px,5.5vw,35px);
+            }
+            .floor-rightContent {
+                list-style-type: none;
+                list-style-position: inside;
+                display: flex;
+                justify-content: space-around;
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 1rem 0 0;
+            }    
+        }
+    </style>
+</head>
+<body>
+    lfjifhljshfkH
+    <button class="floorpopuptrigger">Trigger </button>
+    <section>
+        <div class="floor-popupContainer">
+            <div class="floor-popupOverlay"></div>
+            <div class="floor-popupFlex">
+                <div class="floor-popupLeftContainer">
+                    <img src="assets/images/logo/modal-logo.png" alt="Logo of CliFF tower" loading="lazy" class="floor-popupLogo" />
+                    <p class="floor-popupHeading">Unlock Privilege with Rustomjee Developer</p>
+                    <p class="floor-popupSubheading">Register now to access develop-direct offers</p>
+
+                    <form>
+                        <div class="popup-formGroup">
+                            <input type="text" placeholder="Enter Your Name" class="popup-inputName" required/>
+                        </div>
+                        <div class="popup-formGroup">
+                            <div class="popup-PhoneContainer">
+                                <div class="popup-input-wrapper">
+                                <div class="phone-Icon"></div>
+                                <select class="popup-select" required aria-label="Select Country Code">
+                                    <option value="+91" selected>India (+91)</option>
+                                </select>
+                                <input type="text" class="popup-inputMobile" placeholder="Mobile Number" required />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="popup-formGroup">
+                            <input type="checkbox" id="constent_checkbox" checked required/>
+                            <label for="constent_checkbox" class="floor-popupCheckboxLabel">I consent to the use of provided data in accordance with the <a href="" rel="noopener noreferrer">Privacy Policy</a></label>
+                        </div>
+                        <input type="submit" value="Get An Offer" class="floor-popupSubmitBtn" />
+                    </form>
+                </div>
+                <div class="floor-popupRightContainer">
+                    <p class="floor-rightHeading">Ground Level Arrival and lanscape design</p>
+                    <ul class="floor-rightContent">
+                        <li>Entrance Driveway</li>
+                        <li>Exit driveway</li>
+                        <li>Porte-cochère</li>
+                        <li>Security pavilion</li>
+                        <li>Botanical perimeter planting</li>
+                        <li>Drop-off court with lush, creeper-clad pergola</li>
+                        <li>Signature reflecting water feature</li>
+                        <li>Artisan cobble-paving in a radial pattern</li>
+                        <li>Pedestrian ramp</li>
+                        <li>Boundary wall</li>
+                        <li>Fire tender access gate (sliding)</li>
+                        <li>Pedestrian promenade with sculpted seating and median greenery</li>
+                        <li>Entry to the assessment parking</li>
+                    </ul>
+                </div>
+                
+                    <button aria-label="Close popup" class="floor-popupCloseBtn">&times;</button>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            const floorpopup = document.querySelector(".floor-popupContainer");
+            function ClosefloorPopup() {
+                floorpopup.style.display = "none";
+                document.body.style.overflowY = "visible";
+            }
+
+            function OpenfloorPopup() {
+                floorpopup.style.display = "block";
+                document.body.style.overflowY = "hidden";
+            }
+
+            document.querySelector(".floor-popupCloseBtn").addEventListener("click",(e)=>{
+                e.preventDefault();
+                ClosefloorPopup();
+            });
+            document.querySelector(".floor-popupOverlay").addEventListener("click",(e)=>{
+                e.preventDefault();
+                ClosefloorPopup();
+            });
+
+            document.querySelectorAll(".floorpopuptrigger").forEach(element => {
+                element.addEventListener("click",(e)=>{
+                    e.preventDefault();
+                    OpenfloorPopup();
+                })
+            })
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,651 @@
+        .main-popupContainer {
+            display: none;
+            z-index: 1000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+        .main-popupOverlay {
+            background: rgb(0,0,0,0.7);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+        .main-popupFlex {
+            display: flex;
+            gap: 0;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            flex-direction: column-reverse;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 90%;
+            transform: translate(-50%,-50%);
+        }
+        .main-popupLeftContainer {
+            flex: 0 0 50%;
+            width: 100%;
+            text-align: center;
+            background-color: #fff;
+            padding: 1rem;
+        }
+        .main-popupLogo {
+            width: 50%;
+            max-width: 250px;
+            height: auto;
+            display: block;
+            margin: 0 auto 1rem;
+        }
+        .main-popupHeading {
+            font-size: clamp(24px,5vw,35px);
+            color: #000;
+            margin: 1rem 0 0.5rem;
+            line-height: 1.2;
+            font-weight: 500;
+        }
+        .main-popupSubheading {
+            font-size: 0.8rem;
+            color: #000;
+            margin-bottom: 2vh;
+            line-height: 1;
+            letter-spacing: 0;
+        }
+        .popup-formGroup {
+            width: 100%;
+            margin-bottom: 2vh;
+        } 
+        .popup-inputName {
+             width: 100%;
+            padding: 2vh 2vw 2vh 11vw;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23999" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>');
+            background-repeat: no-repeat;
+            background-position: 15px center;
+            background-size: 18px;
+        }
+        .popup-PhoneContainer {
+            position: relative;
+        }
+        .popup-input-wrapper {
+            position: relative;
+            display: flex;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .phone-input-wrapper:focus-within {
+            border-color: #c8956d;
+            box-shadow: 0 0 0 3px rgba(200, 149, 109, 0.1);
+        }
+        .phone-Icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23999" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            z-index: 1;
+        }
+        .popup-select {
+            padding: 2vh 2vw 2vh 11vw; 
+            border: none;
+            background: #f8f8f8;
+            font-size: 16px;
+            color: #333;
+            min-width: 115px; /* Increased width to accommodate padding */
+            text-align: left;
+            outline: none;
+            border-right: 1px solid #e0e0e0;
+            appearance: none; /* Optional: for a cleaner look */
+        }
+        .popup-inputMobile {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            background: transparent;
+            font-size: 16px;
+            outline: none;
+        }
+        .phone-number::placeholder {
+            color: #999;
+        }
+        .main-popupCheckboxLabel {
+            font-size: 9px;
+            color: #000;
+            line-height: normal;
+            letter-spacing: 0;
+            text-align: left;
+        }
+        .main-popupSubmitBtn {
+            width: 100%;
+            border-radius: 50px;
+            padding: 15px;
+            border: 0;
+            background: linear-gradient(90deg, rgba(153, 107, 85, 1) 3%, rgba(229, 171, 142, 1) 35%, rgba(229, 171, 142, 1) 48%, rgba(153, 107, 85, 1) 93% );
+            font-weight: 500;
+        }
+        .main-popupRightContainer {
+            flex: 0 0 50%;
+            width: 100%;
+            background: #815643;
+        }
+        .main-popupImage {
+            width: auto;
+            height: 100%;
+            display: block;
+            max-height: 30vh;
+            margin: 0 auto;
+        }
+        .main-popupCloseBtn {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            border: 0;
+            background-color: rgb(255,255,255,0.8);
+            color: #815643;
+        }
+        @media (min-width:600px) {
+            .main-popupFlex {
+                width: 50%;
+            }
+            .popup-inputName {
+                padding-left: 6vw;
+            }
+            .popup-select {
+                padding-left: 6vw;
+            }
+        }
+        @media (min-width:1100px) {
+            .main-popupFlex {
+                flex-direction: row;
+                width: 75%;
+            }
+            .main-popupLeftContainer{
+                width: 50%;
+            }
+            form {
+                padding: 1rem;
+            }
+            .popup-inputName {
+                padding-left: 4vw;
+            }
+            .popup-select {
+                padding-left: 4vw;
+            }
+            .main-popupImage {
+                width: 100%;
+                height: 100%;
+                max-height: 75vh;
+            }
+            
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Floor Popup */
+
+        .floor-popupContainer {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1000;
+        }
+        .floor-popupOverlay {
+            background: rgb(0,0,0,0.7);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+        .floor-popupFlex {
+            display: flex;
+            gap: 0;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            flex-direction: column-reverse;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 90%;
+            transform: translate(-50%,-50%);
+        }
+        .floor-popupLeftContainer {
+            flex: 0 0 50%;
+            width: 100%;
+            text-align: center;
+            background-color: #fff;
+            padding: 1rem;
+        }
+        .floor-popupLogo {
+            width: 50%;
+            max-width: 250px;
+            height: auto;
+            display: block;
+            margin: 0 auto 1rem;
+        }
+        .floor-popupHeading {
+            font-size: clamp(24px,5vw,35px);
+            color: #000;
+            margin: 1rem 0 0.5rem;
+            line-height: 1.2;
+            font-weight: 500;
+        }
+        .floor-popupSubheading {
+            font-size: 0.8rem;
+            color: #000;
+            margin-bottom: 2vh;
+            line-height: 1;
+            letter-spacing: 0;
+        }        
+        .floor-popupCheckboxLabel {
+            font-size: 9px;
+            color: #000;
+            line-height: normal;
+            letter-spacing: 0;
+            text-align: left;
+        }
+        .floor-popupSubmitBtn {
+            width: 100%;
+            border-radius: 50px;
+            padding: 15px;
+            border: 0;
+            background: linear-gradient(90deg, rgba(153, 107, 85, 1) 3%, rgba(229, 171, 142, 1) 35%, rgba(229, 171, 142, 1) 48%, rgba(153, 107, 85, 1) 93% );
+            font-weight: 500;
+        }
+        .floor-popupRightContainer {
+            flex: 0 0 50%;
+            width: 100%;
+            background: #815643;
+            height: -webkit-fill-available;
+            display: none;
+            padding: 1rem;
+            color: #fff;
+        }
+        .floor-popupCloseBtn {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            border: 0;
+            background-color: var(--rosegold-color);
+        }
+        @media (min-width:600px) {
+            .floor-popupFlex {
+                width: 50%;
+            }
+        }
+        @media (min-width:1100px) {
+            .floor-popupFlex {
+                flex-direction: row;
+                width: 75%;
+            }
+            .floor-popupLeftContainer{
+                width: 50%;
+            }     
+            .floor-popupRightContainer {
+                display: block;
+            }   
+            .floor-rightHeading {
+                text-transform: uppercase;
+                font-size: clamp(24px,5.5vw,35px);
+            }
+            .floor-rightContent {
+                list-style-type: none;
+                list-style-position: inside;
+                display: flex;
+                justify-content: space-around;
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 1rem 0 0;
+            }    
+        }
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* One address Container */
+        .oneaddress-popupContainer {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            z-index: 1000;
+        }
+        .oneaddress-overlay {
+            background: rgb(0,0,0,0.7);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        .oneaddress-popupHolder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background: url(/assets/images/popup/oneaddressbg.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 90%;
+            padding: 1rem;
+            text-align: center;
+        }
+        .oneaddress-popupClose {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            border-radius: 50%;
+            border: 1px solid #000;
+            font-size: 1.1rem;
+            background-color: transparent;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointers;
+            color: #000;
+        }
+        .oneaddress-popupClose:hover {
+            transform: rotate(-90deg);
+        }
+        .oneAddressDecoration {
+            height: 10vh;
+            display: block;
+            transform: translateY(-50%);
+            margin: 0 auto;
+        }
+        .oneaddress-popupHeading {
+            font-size: clamp(25px,2.5vw,40px);
+            font-weight: 600;
+            padding-bottom: 1rem;
+            /* transform: translateY(-50%); */
+            color: #000;
+        }
+        .popup-gridContainer {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            justify-content: space-between;
+            gap: 2vh;
+        }
+        .popup-card {
+            display: flex;
+            gap: 1vh;
+            flex-direction: column;
+            align-items: center;
+            color: #000;
+        }
+        .popup-cardImage {
+            width: 10vw;
+        }
+        .popup-cardDescription {
+            line-height: normal;
+            letter-spacing: 0;
+            font-size: clamp(0.8rem,3vw,1rem);
+        }
+        .requestCallBackBtn {
+            background: linear-gradient(90deg, rgba(153, 107, 85, 1) 3%, rgba(229, 171, 142, 1) 35%, rgba(229, 171, 142, 1) 48%, rgba(153, 107, 85, 1) 93% );
+            display: flex;
+            align-items: center;
+            border-radius: 50px;
+            /* padding: 0 24px; */
+            justify-content: space-between;
+            color: #000;
+            border: 0;
+            margin: 1rem auto;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        .requestCallBackBtn span {
+            padding: 0 24px;
+        }
+        .blueSphere {
+            width: 30%;
+            max-width: 150px;
+            position: absolute;
+            left: 0%;
+            bottom: 15%;
+            transform: translate(-50%,-50%);
+        }
+        .brownspherePopup {
+            position: absolute;
+            bottom: 10%;
+            right: 0;
+            width: 30%;
+            max-width: 150px;
+            transform: translate(50%,-50%);
+        }
+        @media (min-width:600px) {
+            .oneaddress-popupHolder {
+                width: 60%;
+            }
+            .blueSphere {
+                transform: translate(-50%,0%);
+            }
+        }
+        @media (min-width:1100px) {
+            .oneaddress-popupHolder {
+                padding: 2rem 2rem;
+            }
+            .oneAddressDecoration {
+                transform: translateY(-75%);
+            }
+            .popup-gridContainer {
+                grid-template-columns: repeat(3,1fr);
+            }
+            .popup-cardImage {
+                width: 6vw;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* Architect */
+        .architect-popupMobile {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1000;
+        }
+        .architect-popupOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgb(0, 0, 0, 0.7);
+        }
+        .architect-carouselPopupContainer {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 90%;
+            background: burlywood;
+            overflow: hidden;
+        }
+        .architect-popupClose {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: rgb(255, 255, 255, 0.9);
+            border-radius: 50%;
+            cursor: pointer;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            color: #000;
+        }
+        .architect-popupViewport {
+            display: flex;
+            gap: 0;
+            flex-direction: row;
+            transition: transform 1.4s cubic-bezier(0.86, 0, 0.07, 1);
+        } 
+        .architect-popupCard {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            flex: 0 0 100%;
+        }
+        .architect-popupImage {
+            height: 35vh;
+            width: 100%;
+            display: block;
+        }
+        .architect-popupDescriptionContainer {
+            padding: 1rem;
+            color: #000;
+            font-size: clamp(0.8rem,3vw,1rem);
+            line-height: normal;
+            letter-spacing: 0;
+        }
+        .architect-popupLogoContainer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .architectPopupLogo {
+            flex: 0 0 30%;
+            width: 30%;
+            height: auto;
+            display: block;
+            max-width: 100px;
+        }
+        .architect-popupArrowIndicator {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: row;
+        }
+        .architect-popupArrowContainer {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-direction: row;
+        }
+        .architect-popupIndicator {
+            font-size: clamp(100px,8vw,140px);
+            color: #000;
+            line-height: 1;
+        }
+        @media (min-width:600px) {
+            .architect-carouselPopupContainer {
+                width: 50%;
+            }
+        }
+        @media (min-width:1100px) {
+            .architect-popupMobile {
+                display: none;
+            }
+        }

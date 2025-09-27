@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Version</title>
+    <link rel="stylesheet" href="assets/css/desktop/scroll.css" media="screen and (min-width:1100px)" />
+    <link rel="stylesheet" href="assets/css/desktop/deskstyle.css" media="screen and (min-width:1100px)" />
+
+    <link rel="stylesheet" href="assets/css/mobile/mobstyle.css" media="screen and (max-width:1099px)" />
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/animation.css">
+    <link rel="stylesheet" href="assets/css/common.css">
+
+    <style>
+        .Desktop-version {
+            display: none;
+        }
+        .Mobile-version {
+            display: block;
+        }
+         header {
+  position: fixed !important;
+        top: 0;
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+        header.hide {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+        @media (min-width:1100px) {
+            .Desktop-version {
+                display: block;
+            }
+            .Mobile-version {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="Mobile-version">
+<section id="home">
+        <div class="bannercontainer">
+            <header>
+                <nav>
+                    <button aria-label="Menu Button" class="menuBtn">
+                        <img src="assets/images/icons/menubtn.svg" alt="Menu" class="changeMenuIcon" />
+                    </button>
+                    <img src="assets/images/logo/logo.png" alt="Logo of Rustomjee Cliff Tower" class="logoImage" />
+                </nav>
+            </header>
+            <div class="navModal" id="navModal">
+                    <div class="nav-content">
+                        <a href="#home" class="nav-item">Home</a>
+                        <a href="#architect" class="nav-item">Architect</a>
+                        <a href="#highlight" class="nav-item">Project Highlights</a>
+                        <a href="#floor" class="nav-item">Floor Plan</a>
+                        <a href="#gallery" class="nav-item">Gallery</a>
+                        <a href="#location" class="nav-item">Location</a>
+                        <button class="requestCallBackBtn">
+                            <span>Ask For Price Details</span>
+                            <img src="assets/images/icons/TopRIghtArrow.svg" alt="Check Price" loading="lazy" />
+                        </button>
+                    </div>
+                </div>
+
+            <div class="banner">
+                <div class="bgVideoContainer">
+                    <video autoplay muted loop playsinline class="bgVideo">
+                        <source src="assets/images/banner/banner-video.mp4" type="video/mp4" >
+                    </video>
+                </div>
+                <div class="bannerImageContainer">
+                    <img src="assets/images/banner/banner.jpeg" alt="Cliff Tower" class="bannerImage"/>
+                </div>
+                <button class="videoImageReverseBtn">
+                    <img src="assets/images/icons/reverse.svg" alt="Switch Image and video" class="reverseImage" />
+                </button>
+            </div>
+            <div class="liveContentContainer">
+                <div class="liveTextHolder">
+                    <p class="live">Live</p>
+                    <p class="here">Here</p>
+                </div>
+                    <hr>
+                    <p class="bannerContent">Rustomjee Cliff Tower at Mount Mary provides luxurious sea-view residences along with premium amenities and a perfect blend of comfort and luxury living.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="architect">
+        <div class="architect-sectionOne">
+            <div class="architect-bannerContainer">
+            <img src="assets/images/highligh-banners/clifftowerbanner.webp" alt="Virtual representation of Cliff Tower" loading="lazy" class="belowBannerImage" />
+            <img src="assets/images/icons/whitesphere.png" alt="decoration" loading="lazy" class="whitesphere1" />
+            </div>
+            <p class="architect-text">Where design meets nature in perfect harmony, crafted with intention and thoughtful simplicity.</p>
+            <hr class="architect-dividerOne">
+        </div>
+    </section>
+    
+    <section>
+         <div class="architect-sectionTwo">
+            <p class="architect-heading">Architect</p>
+            <div class="architect-imageContainer">
+                <img src="assets/images/highligh-banners/architect-mobile.png" alt="architecture of cliff Tower" loading="lazy" class="architect-image" />
+                <img src="assets/images/icons/brownsphere.png" alt="decoration" class="brownSphere2" />
+                <button class="architectEnquireBtn architect-popupTrigger" aria-label="Enquire or know more about cliff tower architecture">
+                    <img src="assets/images/icons/add.svg" alt="Know" class="architectEnquireImage" loading="lazy"  />
+                </button>
+            </div>
+            <hr class="architect-dividerOne">
+            <p class="architect-description">Rustomjee Cliff Tower features refined craftsmanship, French balconies, and spacious open terraces, all combining to create a bold expression of modern sophistication.
+            </p>
+            <button class="architect-popup mainpopuptrigger" aria-label="Get More details on rustomjee cliff tower"><img src="assets/images/icons/add.svg" alt="add" loading="lazy" class="architect-popupImagebtn"></button>
+         </div>
+    </section>
+    
+    <section>
+        <div class="architect-popupMobile">
+            <div class="architect-popupOverlay"></div>
+            <div class="architect-carouselPopupContainer">
+                <button class="architect-popupClose" aria-label="Close architect details">&times;</button>
+                <div class="architect-popupViewport">
+                    <div class="architect-popupCard">
+                        <img src="assets/images/architect/sanjay.jpg" alt="Architect of Cliff Tower" loading="lazy" class="architect-popupImage"/>
+                        <div class="architect-popupDescriptionContainer">
+                            <p class="architect-popupDescription">Sanjay Puri is one of India's most celebrated architects on the international stage, with an engagement of more than 360 awards from global platforms such as the World Architecture Festival, LEAF (UK), and Architizer A+ Awards. Sanjay Puri Architects experiment with bold geometries and climate sensitivity, juxtaposing sculptural form with practical solutions.</p>
+                            <div class="architect-popupLogoContainer">
+                                <img src="assets/images/icons/A+award.png" alt="Awards and Recognition" loading="lazy" class="architectPopupLogo" />
+                                <img src="assets/images/icons/ABBLEAF.png" alt="Awards and Recognition" loading="lazy" class="architectPopupLogo" />
+                                <img src="assets/images/icons/WAF.png" alt="Awards and Recognition" loading="lazy" class="architectPopupLogo" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="architect-popupCard">
+                        <img src="assets/images/architect/sanjay.jpg" alt="Architect of Cliff Tower" loading="lazy" class="architect-popupImage"/>
+                        <div class="architect-popupDescriptionContainer">
+                            <p class="architect-popupDescription">Sanjay Puri is one of India's most celebrated architects on the international stage, with an engagement of more than 360 awards from global platforms such as the World Architecture Festival, LEAF (UK), and Architizer A+ Awards. Sanjay Puri Architects experiment with bold geometries and climate sensitivity, juxtaposing sculptural form with practical solutions.</p>
+                            <!-- <div class="architect-popupLogoContainer">
+                                <img src="assets/images/icons/A+award.png" alt="Awards and Recognition" loading="lazy" class="architectPopupLogo" />
+                                <img src="assets/images/icons/ABBLEAF.png" alt="Awards and Recognition" loading="lazy" class="architectPopupLogo" />
+                                <img src="assets/images/icons/WAF.png" alt="Awards and Recognition" loading="lazy" class="architectPopupLogo" />
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="architect-popupCard">
+                        <img src="assets/images/architect/sanjay.jpg" alt="Architect of Cliff Tower" loading="lazy" class="architect-popupImage"/>
+                        <div class="architect-popupDescriptionContainer">
+                            <p class="architect-popupDescription">Kunal Maniar is a leading landscape architect in India, celebrated for his work on high-end residential developments. He enhances luxury villas, gated communities, and urban sanctuaries, skillfully blending design and nature. His esteemed clientele includes Mukesh and Nita Ambani, Shah Rukh and Gauri Khan, Ranbir Kapoor and Alia Bhatt, and MS and Sakshi Dhoni.</p>
+                            <div class="architect-popupLogoContainer">
+                                <img src="assets/images/icons/A+award.png" alt="Awards and Recognition" loading="lazy" class="architectPopupLogo" />
+                                <img src="assets/images/icons/ABBLEAF.png" alt="Awards and Recognition" loading="lazy" class="architectPopupLogo" />
+                                <img src="assets/images/icons/WAF.png" alt="Awards and Recognition" loading="lazy" class="architectPopupLogo" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="architect-popupArrowIndicator">
+                    <div class="architect-popupArrowContainer">
+                        <button class="architect-popupLeft" aria-label="View Previous Architect"><img src="assets/images/icons/leftArrow.png" alt="Previous" loading="lazy" width="40" height="40" /></button>
+                        <button class="architect-popupRight" aria-label="View Next Architect"><img src="assets/images/icons/rightArrow.png" alt="Next" loading="lazy" width="40" height="40" /></button>
+                    </div>
+                    <p class="architect-popupIndicator">1</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="highlight">
+         <div class="highlight-sectionOne">
+            <img src="assets/images/highligh-banners/project-highlight.webp" alt="highlights of rustomjee cliff tower" loading="lazy" class="highlightBannerImage" />
+         </div>
+         <img src="assets/images/icons/futuristics.png" alt="Decoration" class="decoration" loading="lazy">
+         <p class="highlight-Text">Redefined luxury through well-crafted design and world-class, timeless architectural grace</p>
+    </section>
+    
+    <section>
+        <div class="highlightCarouselContainer">
+            <div class="highlightCarouselViewport">
+                <div class="highlightCard">
+                    <img src="assets/images/amenities/a1.webp" alt="Highlights of cliff tower" loading="lazy" class="highlight-cardImage" />
+                    <p class="highlight-cardDescription">27 floors featuring a unique and rare setting with two well-crafted homes on each level.</p>
+                </div>
+                <div class="highlightCard">
+                    <img src="assets/images/amenities/a2.webp" alt="Highlights of cliff tower" loading="lazy" class="highlight-cardImage" />
+                    <p class="highlight-cardDescription">Each home offers stunning views from Bandra's highest point, showcasing a panoramic 270° vista of the sea and the skyline.</p>
+                </div>
+            </div>
+            <div class="highlightArrowIndicatorContainer">
+                <div class="highlightArrowContainer">
+                    <button aria-label="View Previous Image" class="highlight-left"><img src="assets/images/icons/leftArrow.png" alt="Previous" loading="lazy" width="40" height="40" /></button>
+                    <button aria-label="view Next Image" class="highlight-right"><img src="assets/images/icons/rightArrow.png" alt="Next" loading="lazy" width="40" height="40" /></button>
+                </div>
+                <p class="highlightIndicator">1</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="floor">
+        <div class="floorplan-VideoContainer floorpopuptrigger">
+            <video autoplay loop muted playsinline class="floorVideo" >
+                <source src="assets/images/floor/floor_plan_mob.webm" type="video/webm" />
+            </video>
+            <p class="floorplan-videoHeading">
+                <span class="floorplan-videoHeadingSmall">FLoor</span>
+                <span>Plan</span>
+            </p>
+        </div>
+    </section>
+
+    <section>
+    <div class="floor-container">
+        <div class="floorCarouselContainer">
+            <div class="floorCarouselViewport">
+                <div class="floorCard">
+                    <img src="assets/images/floor/16-floor-plan.webp" alt="Floor Plan of rustomjee Cliff Tower" loading="lazy" class="floorCardImage" />
+                </div>
+                <div class="floorCard">
+                    <img src="assets/images/floor/16-unit-plan.webp" alt="Detailed Layout of rustomjee Cliff Tower" loading="lazy" class="floorCardImage" />
+                </div>
+                <div class="floorCard">
+                    <img src="assets/images/floor/roof-top-amenities.webp" alt="Floor Plan of rustomjee Cliff Tower" loading="lazy" class="floorCardImage" />
+                </div>
+            </div>
+            <div class="arrowIndicatorBtnContainer">
+                <button class="requestCallBackBtn floorpopuptrigger" style="margin: 1rem auto;">
+                    <span>Ask For Price Details</span>
+                    <img src="assets/images/icons/TopRIghtArrow.svg" alt="Check Price" loading="lazy" />
+                </button>
+                <div class="floorArrowIndicator">
+                    <div class="floorArrowContainer">
+                        <button aria-label="View Previous Floorplan" class="floormob-left"><img src="assets/images/icons/leftArrow.png" alt="Previous" loading="lazy" width="40" height="40" /></button>
+                        <button aria-label="View Next Floorplan" class="floormob-right"><img src="assets/images/icons/rightArrow.png" alt="Next" loading="lazy" width="40" height="40" /></button>
+                    </div>
+                    <p class="floorMobIndicator">1</p>
+                </div>
+            </div>
+        </div>
+        <div class="floor-descriptionContainer">
+            <p class="floor-description">Explore the floor plans for Rustomjee Cliff Tower and enjoy exclusive project offers delivered directly from the developer, ensuring a seamless and premium home-buying experience.
+            
+            <button aria-label="Download all floor Plan" class="floorEnquireBtn floorpopuptrigger"><img src="assets/images/icons/blacktopright.svg" alt="Enquire Now" width="60" height="60" loading="lazy" /></button>
+            </p>
+            
+        </div>
+    </div>
+    </section>
+
+    <section id="gallery">
+        <div>
+            <img src="assets/images/highligh-banners/gallery-banner.png" alt="Photos of Cliff Tower" loading="lazy" class="galleryBanner" />
+            <p class="gallery-text">An architectural masterpiece that balances elegance with everyday comfort.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="galleryContainer">
+        <div class="galleryCarouselContainer">
+            <div class="gallery-viewportMob">
+                <div class="galleryCard">
+                    <img src="assets/images/gallery/g1.jpg" alt="Gallery Image" loading="lazy" class="galleryImage" />
+                </div>
+                <div class="galleryCard">
+                    <img src="assets/images/gallery/g2.webp" alt="Gallery Image" loading="lazy" class="galleryImage" />
+                </div>
+                <div class="galleryCard">
+                    <img src="assets/images/gallery/g3.jpg" alt="Gallery Image" loading="lazy" class="galleryImage" />
+                </div>
+            </div>
+            <div class="galleryArrowIndicatorContainer">
+                <div class="galleryArrowContainer">
+                    <button aria-label="view Previous Image" class="gallery-left"><img src="assets/images/icons/leftArrow.png" alt="Previous" loading="lazy" width="40" height="40" /></button>
+                    <button aria-label="View Next Image" class="gallery-right"><img src="assets/images/icons/rightArrow.png" alt="Next" loading="lazy" width="40" height="40" /></button>
+                </div>
+                <p class="galleryIndicator">1</p>
+            </div>
+        </div>
+        <img src="assets/images/icons/wooden3.png" alt="decoration" class="gallery-decorationOne" loading="lazy" />
+            <img src="assets/images/icons/wooden2.png" alt="decoration" class="gallery-decorationTwoMob" loading="lazy" />
+        </div>
+        <p class="galleryDescription">Rustomjee Cliff Tower establishes a striking conversation between architecture and nature, with modern design set against a backdrop of enduring beauty. Overlooking the Arabian Sea and in proximity to the cultural landmark of Mount Mary Church, the residences represent exclusivity, sophistication, and an elevated lifestyle.</p>
+        <button class="galleryEnquireBtn mainpopuptrigger">
+                <hr><img src="assets/images/icons/add.svg" alt="Enquire" loading="lazy" class="" /></button>
+    </section>
+    
+    <section id="location">
+        <div class="location-containerOne">
+            <div class="location-bannerImageContainer">
+                <img src="assets/images/highligh-banners/mountmaryMobile.jpg" alt="location of cliff tower" loading="lazy" class="locationBanner" />
+                <img src="assets/images/icons/angel2.png" alt="decoration" class="fairyStatue" loading="lazy">
+            </div>
+            <p class="location-text">Residences defined by modernity, stunning sea views, and timeless natural beauty.</p>
+            <div class="locationVisualContainer">
+                <img src="assets/images/highligh-banners/location-highlight.png" alt="Mount Mart" class="mountmary" loading="lazy" />
+                <img src="assets/images/icons/angel1.png" alt="Angel decoration" class="angelOne" loading="lazy">
+                <img src="assets/images/icons/angel3.png" alt="Angel Decoration" class="angelTwo" loading="lazy">
+                <button class="locationEnquireBtn mainpopuptrigger" aria-label="Enquire about Cliff Tower Location"><img src="assets/images/icons/add.svg" alt="+" loading="lazy" class="locationEnquireImage"></button>
+            </div>
+            <p class="location-description">Rustomjee Cliff Tower creates a remarkable link between modern architecture and nature. Overlooking the Arabian Sea and with Mount Mary Church as a cultural landmark, the residences offer exclusivity, sophistication, and an elevated lifestyle.</p>
+            <p class="location-headingBold">Location</p>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="map-container">
+            <img src="assets/images/highligh-banners/map.jpg" alt="Map" class="map" loading="lazy" />
+            <div class="location-carouselContainer">
+                <div class="location-viewport">
+                    <div class="locationCard">
+                        <p class="location-cardDescription">Domestic Airport</p>
+                        <img src="assets/images/icons/staff.png" alt="graphic represtation" loading="lazy" class="location-cardImage">
+                        <p class="location-distance">8.7<span class="location-km">KM</span></p>
+                    </div>
+                    <div class="locationCard">
+                        <p class="location-cardDescription">International Airport</p>
+                        <img src="assets/images/icons/staff.png" alt="graphic represtation" loading="lazy" class="location-cardImage">
+                        <p class="location-distance">10.7<span class="location-km">KM</span></p>
+                    </div>
+                    <div class="locationCard">
+                        <p class="location-cardDescription">Dhirubhai Ambani International School</p>
+                        <img src="assets/images/icons/staff.png" alt="graphic represtation" loading="lazy" class="location-cardImage">
+                        <p class="location-distance">8.7<span class="location-km">KM</span></p>
+                    </div>
+                </div>
+                <div class="locationArrowContainer">
+                    <button aria-label="View Previous" class="location-left"><img src="assets/images/icons/leftArrow.png" alt="Previous" width="40" height="40" loading="lazy" /></button>
+                    <button aria-label="View Next" class="location-next"><img src="assets/images/icons/rightArrow.png" alt="Next" width="40" height="40" loading="lazy" /></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="oneaddressContainer">
+            <p class="oneaddress-headingSmall">Legacy. Location. Stature</p>
+            <p class="oneaddress-headingBold">One Address</p>
+            <div class="oneaddress-imageHolder oneaddressPopupTrigger">
+                <img src="assets/images/gallery/g9.webp" alt="Enquire Address of Cliff Tower" loading="lazy" class="oneaddressImage" />
+                <button aria-label="Enter Address of Cliff Tower" class="oneaddressBtn oneaddressPopupTrigger"><img src="assets/images/icons/add.svg" alt="+" loading="lazy" class="oneAddressBtnImage" /></button>
+            </div>
+            <p class="one-address-text">What makes Rustomjee Cliff Tower unique?</p>
+            <button class="oneaddressEnquireBtn oneaddressPopupTrigger">
+            <hr><img src="assets/images/icons/add.svg" alt="Enquire" loading="lazy" class="" /></button>
+            <p class="oneaddress-description">Rustomjee Cliff Tower establishes a remarkable connection between modern architecture and nature. With views of the Arabian Sea and Mount Mary Church as a cultural landmark, the residences provide exclusivity, sophistication, and an elevated lifestyle.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="footerContainer">
+            <img src="assets/images/logo/homesfylogo.svg" alt="Homesfy Realty Ltd" loading="lazy" class="homesfylogo">
+            <div class="qrContainer">
+            <img src="assets/images/qr/qr.png" alt="Qr of rustomejee Cliff TOwer" loading="lazy" width="100" height="100" class="qrImage">
+            </div>
+            <div class="footer-infoContainer">
+                <p class="footer-info"><span>✔</span><span>Project Registered under Government of India RERA Act 2016 | <a href="www.maharera.maharashtra.gov.in" rel="noopener noreferrer" class="footer-infolink">www.maharera.maharashtra.gov.in</a></span></p>
+                <p class="footer-info"><span>✔</span><span>Government RERA Authorised Advertiser’s: Homesfy Realty Ltd, Registration No - A5190000013</span></p>
+                <p class="footer-info"><span>✔</span><span>Project Registration No.: P51800080156</span></p>
+            </div>
+            <div class="footer-linkContainer">
+                <a href="https://www.homesfy.co.in/privacy.html" rel="noopener noreferrer" class="footer-link" target="_blank">Privacy Policy</a>
+                <img src="assets/images/icons/line.svg" alt="|" loading="lazy" width="3" height="auto">
+                <a href="https://www.homesfy.co.in/terms.html" rel="noopener noreferrer" class="footer-link" target="_blank">Terms & Conditions</a>
+            </div>
+            <p class="disclaimer">Disclaimer: We're an authorized marketing channel partner (Homesfy Realty Ltd). The provided content, images & video are sourced from respective owners and are provided only for information purposes, it does not constitute an offer to buy any service. The price plans are subject to change without prior notice, and the properties mentioned are subject to availability. You can receive a call, SMS, or emails on contact details registered with us.</p>
+        </div>
+
+        <div class="fixedBottomBar">
+            <a href="#" class="callFooter"><img src="assets/images/icons/call.png" alt="Call" loading="lazy" class="callFooterImg"></a>
+            <a href="#" class="siteFooter mainpopuptrigger"><img src="assets/images/icons/sitevisit.png" alt="SiteVisit" loading="lazy" class="siteFooterImg"></a>
+            <a href="#" class="callFooter"><img src="assets/images/icons/whatsapp.png" alt="whatsapp" loading="lazy" class="callFooterImg"></a>
+        </div> 
+    </section>
+
+    <script src="assets/js/mobilescript.js"></script>
+
+</div>
+
+<div class="Desktop-version">
+
+    <header>
+                <nav class="navbar">
+                    <button aria-label="Menu Button" class="menuBtn">
+                        <img src="assets/images/icons/menubtn.svg" alt="Menu" class="changeMenuIcon" width="40" height="40"/>
+                    </button>
+                    <img src="assets/images/logo/logo.png" alt="Logo of Rustomjee Cliff Tower" class="logoImage" />
+                    <div class="requestSiteVisitBtnContainer">
+                        <button class="requestCallBackBtn mainpopuptrigger">
+                            <span>Request a Call-back</span>
+                            <img src="assets/images/icons/TopRIghtArrow.svg" alt="Call" loading="lazy">
+                        </button>
+                        <button class="requestSiteVisitBtn">
+                            <img src="assets/images/icons/requestSiteIcon.svg" alt="Request Site Visit">
+                        </button>
+                    </div>
+                </nav>
+            </header>
+            <div class="navModal" id="navModal">
+                <div class="nav-content">
+                    <a href="#home" class="nav-item">Home</a>
+                    <a href="#architect" class="nav-item">Architect</a>
+                    <a href="#highlight" class="nav-item">Project Highlights</a>
+                    <a href="#floor" class="nav-item">Floor Plan</a>
+                    <a href="#gallery" class="nav-item">Gallery</a>
+                    <a href="#location" class="nav-item">Location</a>
+                    <button class="requestCallBackBtn mainpopuptrigger">
+                        <span>Ask For Price Details</span>
+                        <img src="assets/images/icons/TopRIghtArrow.svg" alt="Check Price" loading="lazy" />
+                    </button>
+                </div>
+            </div>
+
+    <section class="one" tabindex="0" id="home">
+        <div>
+            
+            <div class="banner">
+                <div class="bannerLeft">
+                    <img src="assets/images/banner/banner.jpeg" alt="Image of Cliff Tower" class="bannerLeftImage" />
+                    <img src="assets/images/icons/subtract.svg" alt="Banner" class="bannerLeftMask" />
+                    <p class="bannerText">Design ShapeRustomjee Cliff Tower at Mount Mary provides luxurious sea-view residences along with premium amenities and a perfect blend of comfort and luxury living.</p>
+                </div>
+                <div class="bannerRight">
+                    <video autoplay muted loop playsinline class="banner-video">
+                        <source src="assets/images/banner/banner-video.mp4" type="video/mp4">
+                    </video>
+                    <img src="assets/images/icons/subtract.svg" alt="Banner" class="bannerRightMask" />
+                    <img src="assets/images/icons/arrowDown.svg" alt="Scroll Down" class="bannerScrollArrow" />
+                    <p class="bannerLive">Live Here</p>
+                </div>
+                <div class="projectHeading">Cliff Tower</div>
+            </div>
+        </div>
+    </section>
+
+  <section class="two" tabindex="0">
+    <div>
+        <img src="assets/images/banner/belowbanner.jpg" alt="Location Highlight" class="belowBannerImageDesk" loading="lazy" />
+    </div>
+  </section>
+
+  <section class="three" tabindex="0" id="architect">
+    <div class="architect-sectionOne">
+        <img src="assets/images/architect/sanjay.jpg" alt="Architect Person" class="architectPersonHighlight" loading="lazy" />
+        <div class="architectBanner">
+            <img src="assets/images/banner/banner.jpeg" alt="Cliff Tower" class="architectBannerImage" loading="lazy" />
+            <button class="architect-knowMore"><img src="assets/images/icons/add.svg" alt="Know More About architecture" loading="lazy" /></button>
+        </div>
+        <div class="architect-details">
+            <p class="architect-detailsHeading">Where design meets nature in perfect harmony, crafted with intention and thoughtful simplicity.</p>
+            <p class="architect-detailsDescription">Rustomjee Cliff Tower features refined craftsmanship, French balconies, and spacious open terraces, all combining to create a bold expression of modern sophistication.</p>
+        </div>
+        
+        <div class="architectHeading">Architect</div>
+        <img src="assets/images/icons/whitesphere.png" alt="Decoration" loading="lazy" class="whiteSphereOne" />
+        <img src="assets/images/icons/brownsphere.png" alt="Decortion" loading="lazy" class="brownSphereOne" />
+        <button class="architectEnquireBtn mainpopuptrigger">
+            <img src="assets/images/icons/add.svg" alt="Enquire Now" loading="lazy" width="30" height="30"/>
+        </button>
+    </div>
+  </section>
+
+  <section class="four" tabindex="0">
+    <div class="architect-sectionTwoDesk">
+        <div class="architect-carouselContainer">
+            <div class="architect-carouselViewport">
+                <div class="architect-carouselCard">
+                    <div class="architect-carouselImageContainer">
+                        <img src="assets/images/architect/sanjay.jpg" alt="Architect" loading="lazy" class="architect-carouselImage">
+                    </div>
+                    <div class="architect-carouselDetailsContainer">
+                        <p class="architect-carouselDetails" style="background-image: url(assets/images/icons/quotation.svg);">Sanjay Puri is one of India's most celebrated architects on the international stage, with an engagement of more than 360 awards from global platforms such as the World Architecture Festival, LEAF (UK), and Architizer A+ Awards. Sanjay Puri Architects experiment with bold geometries and climate sensitivity, juxtaposing sculptural form with practical solutions.</p>
+                        <div class="architect-carouselLogoContainer">
+                            <img src="assets/images/icons/A+award.png" alt="A+ Award" loading="lazy" class="architect-carouselLogo" />
+                            <img src="assets/images/icons/ABBLEAF.png" alt="ABB LEAF" loading="lazy" class="architect-carouselLogo" />
+                            <img src="assets/images/icons/WAF.png" alt="WAF" loading="lazy" class="architect-carouselLogo" />
+                        </div>
+                    </div>
+                    <div class="architect-carouselArrowIndicatorContainer">
+                        <div class="architect-carouselArrowContainer">
+                        <button class="architect-arrowLeft"><img src="assets/images/icons/leftArrow.png" alt="Scroll Left" loading="lazy" width="40" height="40" /></button>
+                        <button class="architect-arrowRight"><img src="assets/images/icons/rightArrow.png" alt="Scroll right" loading="lazy" width="40" height="40" /></button>
+                        </div>
+                        <p class="architect-carouselIndicator">1</p>
+                    </div>
+                </div>
+
+                <div class="architect-carouselCard">
+                    <div class="architect-carouselImageContainer">
+                        <img src="assets/images/architect/sanjay.jpg" alt="Architect" loading="lazy" class="architect-carouselImage">
+                    </div>
+                    <div class="architect-carouselDetailsContainer">
+                        <p class="architect-carouselDetails" style="background-image: url(assets/images/icons/quotation.svg);">Sanjay Puri is one of India's most celebrated architects on the international stage, with an engagement of more than 360 awards from global platforms such as the World Architecture Festival, LEAF (UK), and Architizer A+ Awards. Sanjay Puri Architects experiment with bold geometries and climate sensitivity, juxtaposing sculptural form with practical solutions.</p>
+                        <div class="architect-carouselLogoContainer">
+                            <img src="assets/images/icons/A+award.png" alt="A+ Award" loading="lazy" class="architect-carouselLogo" />
+                            <img src="assets/images/icons/ABBLEAF.png" alt="ABB LEAF" loading="lazy" class="architect-carouselLogo" />
+                            <img src="assets/images/icons/WAF.png" alt="WAF" loading="lazy" class="architect-carouselLogo" />
+                        </div>
+                    </div>
+                    <div class="architect-carouselArrowIndicatorContainer">
+                        <div class="architect-carouselArrowContainer">
+                        <button class="architect-arrowLeft"><img src="assets/images/icons/leftArrow.png" alt="Scroll Left" loading="lazy" width="40" height="40" /></button>
+                        <button class="architect-arrowRight"><img src="assets/images/icons/rightArrow.png" alt="Scroll right" loading="lazy" width="40" height="40" /></button>
+                        </div>
+                        <p class="architect-carouselIndicator">2</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="architect-details">
+            <p class="architect-detailsHeading">Where design meets nature in perfect harmony, crafted with intention and thoughtful simplicity.</p>
+            <p class="architect-detailsDescription">Rustomjee Cliff Tower features refined craftsmanship, French balconies, and spacious open terraces, all combining to create a bold expression of modern sophistication.</p>
+        </div>
+        <img src="assets/images/icons/whitesphere.png" alt="Decoration" loading="lazy" class="whiteSphereOne" />
+        <button class="architectEnquireBtn mainpopuptrigger">
+            <img src="assets/images/icons/add.svg" alt="Enquire Now" loading="lazy" width="30" height="30"/>
+        </button>
+    </div>
+  </section>
+  
+  <section class="five" tabindex="0">
+    <div class="highlightImageContainer">
+        <img src="assets/images/highligh-banners/desk-highlight.png" alt="Highlights of Cliff Tower" loading="lazy" class="highlightImage">
+    </div>
+  </section>
+  
+  <section class="six" tabindex="0" id="highlight">
+    <div class="project-highlightOne">
+        <div class="highlight-leftContainer">
+            <p class="highlightHeading">Redefined luxury through well-crafted design and world-class, timeless architectural grace</p>
+            <button class="highlightEnquireBtn mainpopuptrigger">
+                <hr><img src="assets/images/icons/add.svg" alt="Enquire" loading="lazy" class="" /></button>
+            <p class="highlightSubHeading">Rustomjee Cliff Tower features grand entrance spaces across two levels, with cathedral-style ceilings, elegant staircases, and luxurious lounges. These design elements create an atmosphere of exclusivity, sophistication, and comfort, setting a new standard for modern city living.</p>
+        </div>
+        <div class="highlight-rightContainer">
+            <img src="assets/images/amenities/a1.webp" alt="amenities" loading="lazy" class="amenitiesImage imageOne">
+            <img src="assets/images/amenities/a2.webp" alt="amenities" loading="lazy" class="amenitiesImage imageTwo">
+            <img src="assets/images/amenities/a3.webp" alt="amenities" loading="lazy" class="amenitiesImage imageThree">
+        </div>
+        <img src="assets/images/icons/futuristics.png" alt="Decoration" class="highlightDecoration" loading="lazy" />
+        <p class="highlight-headingBold"><span class="highlight-headingSmall">Project</span>
+        <span>Highlight</span></p>
+    </div>
+  </section>
+
+  <section class="seven" tabindex="0">
+    <div class="project-highlightTwo">
+        <div class="highlight-leftContainer">
+            <p class="highlightHeading">Redefined luxury through well-crafted design and world-class, timeless architectural grace</p>
+            <button class="highlightEnquireBtn mainpopuptrigger">
+                <hr><img src="assets/images/icons/add.svg" alt="Enquire" loading="lazy" class="" /></button>
+            <p class="highlightSubHeading">Rustomjee Cliff Tower features grand entrance spaces across two levels, with cathedral-style ceilings, elegant staircases, and luxurious lounges. These design elements create an atmosphere of exclusivity, sophistication, and comfort, setting a new standard for modern city living.</p>
+        </div>
+        <img src="assets/images/icons/futuristics.png" alt="Decoration" class="highlightDecoration" loading="lazy" />
+        <p class="highlight-headingBold"><span class="highlight-headingSmall">Project</span>
+        <span>Highlight</span></p>
+        
+        <div class="highlight-secondRightContainer">
+            <div class="highlight-carouselContainer">
+                <div class="highlight-carouselViewport">
+                    <div class="highlight-carouselCard">
+                        <div class="highlight-cardLeft">
+                            <p class="highlight-details">27 floors featuring a unique and rare setting with two well-crafted homes on each level.</p>
+                            <div class="highlightArrowIndicatorContainer">
+                            <div class="highlightArrowContainer">
+                                <button aria-label="View Previous Highlight" class="highlightLeft">
+                                    <img src="assets/images/icons/leftArrow.png" alt="View Previous" loading="lazy" />
+                                </button>
+                                <button aria-label="View Next Highlight" class="highlightRight">
+                                    <img src="assets/images/icons/rightArrow.png" alt="View Next" loading="lazy" />
+                                </button>
+                            </div>
+                            <p class="highlightIndicator">1</p>
+                        </div>
+                        </div>
+                        <div class="highlight-cardRight">
+                            <img src="assets/images/amenities/a1.webp" alt="Highlight Image" loading="lazy" class="highlightCard-rightImage" />
+                        </div>
+                    </div>
+                    <div class="highlight-carouselCard">
+                        <div class="highlight-cardLeft">
+                            <p class="highlight-details">27 floors featuring a unique and rare setting with two well-crafted homes on each level.</p>
+                            <div class="highlightArrowIndicatorContainer">
+                            <div class="highlightArrowContainer">
+                                <button aria-label="View Previous Highlight" class="highlightLeft">
+                                    <img src="assets/images/icons/leftArrow.png" alt="View Previous" loading="lazy" />
+                                </button>
+                                <button aria-label="View Next Highlight" class="highlightRight">
+                                    <img src="assets/images/icons/rightArrow.png" alt="View Next" loading="lazy" />
+                                </button>
+                            </div>
+                            <p class="highlightIndicator">2</p>
+                        </div>
+                        </div>
+                        <div class="highlight-cardRight">
+                            <img src="assets/images/amenities/a2.webp" alt="Highlight Image" loading="lazy" class="highlightCard-rightImage" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section class="eight" tabindex="0" id="floor">
+    <div class="Floor-VideoContainer floorpopuptrigger">
+        <video autoplay muted loop playsinline class="floor-video">
+            <source src="assets/images/floor/floor_plan-video.webm" type="video/webm" />
+            Your Brower Does not Support Video
+        </video>
+        <p class="floorHeading"><span class="floorSubheading">Floor</span>
+        <span>Plan</span></p>
+    </div>
+  </section>
+
+  <section class="nine" tabindex="0">
+    <div class="floorPlanContainer">
+        <div class="floor-LeftContainer">
+            <div class="floorPlanCarouselContainer">
+                <div class="floorplan-CarouselViewport">
+                    <div class="floorcard">
+                        <img src="assets/images/floor/16-floor-plan.webp" alt="16 Floor Plan" loading="lazy" class="floorCardImage" />
+                    </div>
+                    <div class="floorcard">
+                        <img src="assets/images/floor/16-unit-plan.webp" alt="16 Unit Plan" loading="lazy" class="floorCardImage" />
+                    </div>
+                    <div class="floorcard">
+                        <img src="assets/images/floor/floor-plan.webp" alt="Floor Plan" loading="lazy" class="floorCardImage" />
+                    </div>
+                </div>
+            </div>
+            <div class="floorIndicatorEnquireBtnContainer">
+                <div class="floorArrowIndicatorContainer">
+                    <div class="floorArrowControls">
+                        <button class="floor-left" aria-label="View Previous FloorPlan"><img src="assets/images/icons/leftArrow.png" alt="Left" loading="lazy" width="40" height="40" /></button>
+                        <button class="floor-right" aria-label="View Next FloorPlan"><img src="assets/images/icons/rightArrow.png" alt="Right" loading="lazy" width="40" height="40" /></button>
+                    </div>
+                    <p class="floorIndicator">1</p>
+                </div>
+                <button class="floorplanEnquireBtn floorpopuptrigger">
+                    <span>Ask Price Details</span>
+                    <img src="assets/images/icons/TopRIghtArrow.svg" alt="Enquire" loading="lazy" />
+                </button>
+            </div>
+        </div>
+        <div class="floor-RightContainer">
+            <p class="floor-Text">Explore the floor plans for Rustomjee Cliff Tower and enjoy exclusive project offers delivered directly from the developer, ensuring a seamless and premium home-buying experience.
+                <button class="floor-TextBtn floorpopuptrigger" aria-label="Floor Plan of Cliff Tower"><img src="assets/images/icons/blacktopright.svg" alt="Enquire More" loading="lazy" width="70" height="70"></button>
+            </p>
+        </div>
+    </div>
+  </section>
+
+  <section class="ten" tabindex="0">
+    <div><img src="assets/images/highligh-banners/gallery-highlights-desk.png" alt="Gallery Highlight" class="galleryHighlightImage" loading="lazy" /></div>
+  </section>
+
+  <section class="eleven" tabindex="0" id="gallery">
+    <div class="galleryContainerDesk">
+        <div class="gallery-leftContainer">
+            <div class="gallery-carouselContainer">
+                <div class="gallery-viewport">
+                    <div class="galleryCard">
+                        <img src="assets/images/gallery/g1.jpg" alt="Image 1" loading="lazy" class="galleryImage" />
+                    </div>
+                    <div class="galleryCard">
+                        <img src="assets/images/gallery/g2.webp" alt="Image 1" loading="lazy" class="galleryImage" />
+                    </div>
+                    <div class="galleryCard">
+                        <img src="assets/images/gallery/g3.jpg" alt="Image 1" loading="lazy" class="galleryImage" />
+                    </div>
+                </div>
+            </div>
+            <div class="galleryArrowIndicatorContainer">
+                <div class="gallery-arrowContainer">
+                    <button aria-label="View Previous Image" class="galleryDesk-left"><img src="assets/images/icons/leftArrow.png" alt="Previous" loading="lazy" aria-hidden="true" width="40" height="40" /></button>
+                    <button aria-label="View Next Image" class="galleryDesk-right"><img src="assets/images/icons/rightArrow.png" alt="Next" loading="lazy" aria-hidden="true" width="40" height="40" /></button>
+                </div>
+                <p class="gallery-indicator">1</p>
+            </div>
+            <img src="assets/images/icons/wooden1.png" alt="Decoration" loading="lazy" class="gallery-decorationOne" />
+            <img src="assets/images/icons/wooden2.png" alt="Decoration" loading="lazy" class="gallery-decorationTwo" />
+        </div>
+        <div class="gallery-rightContainer">
+            <p class="gallery-heading">An architectural masterpiece that balances elegance with everyday comfort.</p>
+            <button class="highlightEnquireBtn mainpopuptrigger">
+                <hr><img src="assets/images/icons/add.svg" alt="Enquire" loading="lazy" class="" /></button>
+            <p class="gallery-subheading">Rustomjee Cliff Tower establishes a striking conversation between architecture and nature, with modern design set against a backdrop of enduring beauty. Overlooking the Arabian Sea and in proximity to the cultural landmark of Mount Mary Church, the residences represent exclusivity, sophistication, and an elevated lifestyle.</p>
+            <p class="gallery-headingBold">
+                <span class="gallery-headingSmall">Project</span>
+                <span>Gallery</span>
+            </p>
+        </div>
+    </div>
+  </section>
+
+  <section class="twelve" tabindex="0">
+    <div><img src="assets/images/highligh-banners/mountmary-desk.webp" alt="Location Highlight" class="locationBanner" loading="lazy"></div>
+  </section>
+
+  <section class="thirteen" tabindex="0" id="location">
+    <div class="location-ContainerOne">
+        <div class="location-leftContainer">
+            <p class="location-heading">Residences defined by modernity, stunning sea views, and timeless natural beauty.</p>
+            <button class="highlightEnquireBtn mainpopuptrigger">
+                <hr><img src="assets/images/icons/add.svg" alt="Enquire" loading="lazy" class="" /></button>
+            <p class="location-subheading">Rustomjee Cliff Tower creates a remarkable link between modern architecture and nature. Overlooking the Arabian Sea and with Mount Mary Church as a cultural landmark, the residences offer exclusivity, sophistication, and an elevated lifestyle.</p>
+        </div>
+        <div class="location-rightContainer">
+            <img src="assets/images/highligh-banners/location-highlight.png" alt="Mount Mary" loading="lazy" class="locationImage" />
+            <img src="assets/images/icons/angel1.png" alt="Angel" loading="lazy" class="location-angel1" />
+            <img src="assets/images/icons/angel2.png" alt="fairy Decoration" loading="lazy" class="location-angel2" />
+            <img src="assets/images/icons/angel3.png" alt="Angel decoration" loading="lazy" class="location-angel3" />
+        </div>
+        <!-- <p class="locationBold">location</p> -->
+    </div>
+  </section>
+
+  <section class="fourteen" tabindex="0">
+    <div class="location-ContainerTwo">
+        <img src="assets/images/highligh-banners/map.webp" alt="Map" loading="lazy" class="locationMap" />
+        <div class="location-carouselContainer">
+            <div class="location-viewportDesk">
+                <div class="location-card">
+                    <p class="location-text">Domestic Airport</p>
+                    <img src="assets/images/icons/staff.png" alt="Pictorial representation" loading="lazy" class="location-cardImage" />
+                    <p class="location-distance"><span>8.7</span><span class="location-km">KM</span></p>
+                </div>
+                <div class="location-card">
+                    <p class="location-text">INTL Airport</p>
+                    <img src="assets/images/icons/staff.png" alt="Pictorial representation" loading="lazy" class="location-cardImage" />
+                    <p class="location-distance"><span>10.7</span><span class="location-km">KM</span></p>
+                </div>
+                <div class="location-card">
+                    <p class="location-text">Bandra-Worli sea link</p>
+                    <img src="assets/images/icons/staff.png" alt="Pictorial representation" loading="lazy" class="location-cardImage" />
+                    <p class="location-distance"><span>2.4</span><span class="location-km">KM</span></p>
+                </div>
+            </div>
+            <div class="location-ArrowContainer">
+                <button aria-label="View Previous" class="location-leftDesk"><img src="assets/images/icons/leftArrow.png" alt="Previous" loading="lazy" width="40" height="40" /></button>
+                <button aria-label="View Next" class="location-rightDesk"><img src="assets/images/icons/rightArrow.png" alt="Next" loading="lazy" width="40" height="40" /></button>
+            </div>
+        </div>
+        <p class="location-headingBold"><span class="location-headingSmall">Highlights</span><span>Location</span></p>
+    </div>
+  </section>
+  
+  <section class="fifteen" tabindex="0">
+    <div class="oneaddress-container">
+        <div class="oneaddress-leftContainer">
+            <p class="oneaddress-heading">What makes Rustomjee Cliff Tower unique?</p>
+            <button class="highlightEnquireBtn oneaddressPopupTrigger">
+                <hr><img src="assets/images/icons/add.svg" alt="Enquire" loading="lazy" class="" /></button>
+            <p class="oneaddress-subheading">Rustomjee Cliff Tower establishes a remarkable connection between modern architecture and nature. With views of the Arabian Sea and Mount Mary Church as a cultural landmark, the residences provide exclusivity, sophistication, and an elevated lifestyle.</p>
+        </div>
+        <div class="oneaddress-rightContainer">
+            <div class="oneaddress-imageContainer oneaddressPopupTrigger">
+                <img src="assets/images/gallery/g9.webp" alt="Image" loading="lazy" class="oneaddress-Image">
+                <button aria-label="Enquire Now" class="oneaddress-button oneaddressPopupTrigger"><img src="assets/images/icons/add.svg" alt="Enquire" loading="lazy" width="30" height="30" /></button>
+            </div>
+        </div>
+        <p class="oneaddress-headingBold">
+            <span class="oneaddress-headingSmall">Legacy. location. stature</span>
+            <span>One address</span>
+        </p>
+    </div>
+  </section>
+
+  <section class="sixteen" tabindex="0">
+    <div class="footer-container">
+        <img src="assets/images/logo/homesfylogo.svg" alt="Homesfy Realty LTD" loading="lazy" class="homesfyLogo" />
+        <div class="qrSection">
+            <img src="assets/images/qr/qr.png" alt="QR of Rustomjee Cliff Tower" loading="lazy" width="100" height="100" />
+        </div>
+        <div class="footer-infoContainer">
+                <p class="footer-info"><span>✔</span><span>Project Registered under Government of India RERA Act 2016 | <a href="www.maharera.maharashtra.gov.in" rel="noopener noreferrer" class="footer-infolink">www.maharera.maharashtra.gov.in</a></span></p>
+                <p class="footer-info"><span>✔</span><span>Government RERA Authorised Advertiser’s: Homesfy Realty Ltd, Registration No - A5190000013</span></p>
+                <p class="footer-info"><span>✔</span><span>Project Registration No.: P51800080156</span></p>
+            </div>
+        <div class="footer-linkContainer">
+            <a href="" class="footer-link">Terms & Conditions</a>
+            <img src="assets/images/icons/line.svg" alt="and" loading="lazy" />
+            <a href="" class="footer-link">Privacy Policy</a>
+        </div>
+        <p class="disclaimer">Disclaimer: We're an authorized marketing channel partner (Homesfy Realty Ltd). The provided content, images & video are sourced from respective owners and are provided only for information purposes, it does not constitute an offer to buy any service. The price plans are subject to change without prior notice, and the properties mentioned are subject to availability. You can receive a call, SMS, or emails on contact details registered with us.</p>
+    </div>
+  </section>
+
+  <script src="assets/js/animation.js"></script>
+  <script src="assets/js/script.js"></script>
+
+</div>
+
+
+
+        <div class="main-popupContainer">
+            <div class="main-popupOverlay"></div>
+            <div class="main-popupFlex">
+                <div class="main-popupLeftContainer">
+                    <img src="assets/images/logo/modal-logo.png" alt="Logo of CliFF tower" loading="lazy" class="main-popupLogo" />
+                    <p class="main-popupHeading">Unlock Privilege with Rustomjee Developer</p>
+                    <p class="main-popupSubheading">Register now to access develop-direct offers</p>
+
+                    <form>
+                        <div class="popup-formGroup">
+                            <input type="text" placeholder="Enter Your Name" class="popup-inputName" required/>
+                        </div>
+                        <div class="popup-formGroup">
+                            <div class="popup-PhoneContainer">
+                                <div class="popup-input-wrapper">
+                                <div class="phone-Icon"></div>
+                                <select class="popup-select" required aria-label="Select Country Code">
+                                    <option value="+91" selected>India (+91)</option>
+                                </select>
+                                <input type="text" class="popup-inputMobile" placeholder="Mobile Number" required />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="popup-formGroup" style="display: flex; gap: 10px;align-items: baseline;">
+                            <input type="checkbox" id="constent_checkbox" checked required/>
+                            <label for="constent_checkbox" class="main-popupCheckboxLabel"><p>I consent to the use of provided data in accordance with the <a href="" rel="noopener noreferrer">Privacy Policy</a></p></label>
+                        </div>
+                        <input type="submit" value="Get An Offer" class="main-popupSubmitBtn" />
+                    </form>
+                </div>
+                <div class="main-popupRightContainer">
+                    <button aria-label="Close popup" class="main-popupCloseBtn">&times;</button>
+                    <img src="assets/images/popup/mainmodal.png" alt="Facility Of Cliff TOwer" loading="lazy" class="main-popupImage" />
+                </div>
+            </div>
+        </div>
+
+        <div class="floor-popupContainer">
+            <div class="floor-popupOverlay"></div>
+            <div class="floor-popupFlex">
+                <div class="floor-popupLeftContainer">
+                    <img src="assets/images/logo/modal-logo.png" alt="Logo of CliFF tower" loading="lazy" class="floor-popupLogo" />
+                    <p class="floor-popupHeading">Unlock Privilege with Rustomjee Developer</p>
+                    <p class="floor-popupSubheading">Register now to access develop-direct offers</p>
+
+                    <form>
+                        <div class="popup-formGroup">
+                            <input type="text" placeholder="Enter Your Name" class="popup-inputName" required/>
+                        </div>
+                        <div class="popup-formGroup">
+                            <div class="popup-PhoneContainer">
+                                <div class="popup-input-wrapper">
+                                <div class="phone-Icon"></div>
+                                <select class="popup-select" required aria-label="Select Country Code">
+                                    <option value="+91" selected>India (+91)</option>
+                                </select>
+                                <input type="text" class="popup-inputMobile" placeholder="Mobile Number" required />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="popup-formGroup" style="display: flex;gap: 10px;align-items: baseline;">
+                            <input type="checkbox" id="constent_checkbox" checked required/>
+                            <label for="constent_checkbox" class="floor-popupCheckboxLabel"><p>I consent to the use of provided data in accordance with the <a href="" rel="noopener noreferrer">Privacy Policy</a></p></label>
+                        </div>
+                        <input type="submit" value="Get An Offer" class="floor-popupSubmitBtn" />
+                    </form>
+                </div>
+                <div class="floor-popupRightContainer">
+                    <p class="floor-rightHeading">Ground Level Arrival and lanscape design</p>
+                    <ul class="floor-rightContent">
+                        <li>Entrance Driveway</li>
+                        <li>Exit driveway</li>
+                        <li>Porte-cochère</li>
+                        <li>Security pavilion</li>
+                        <li>Botanical perimeter planting</li>
+                        <li>Drop-off court with lush, creeper-clad pergola</li>
+                        <li>Signature reflecting water feature</li>
+                        <li>Artisan cobble-paving in a radial pattern</li>
+                        <li>Pedestrian ramp</li>
+                        <li>Boundary wall</li>
+                        <li>Fire tender access gate (sliding)</li>
+                        <li>Pedestrian promenade with sculpted seating and median greenery</li>
+                        <li>Entry to the assessment parking</li>
+                    </ul>
+                </div>
+                
+                    <button aria-label="Close popup" class="floor-popupCloseBtn">&times;</button>
+            </div>
+        </div>
+
+        <div class="oneaddress-popupContainer">
+            <div class="oneaddress-overlay"></div>
+            <div class="oneaddress-popupHolder">
+                <button class="oneaddress-popupClose" aria-label="Close Popup">&times;</button>
+                <img src="assets/images/popup/tourch.png" alt="decoration" class="oneAddressDecoration" loading="lazy" />
+                <p class="oneaddress-popupHeading">What Makes Rustomjee Cliff Tower One of a Kind</p>
+                <div class="popup-gridContainer">
+                    <div class="popup-card">
+                        <img src="assets/images/popup/home.png" alt="Home" class="popup-cardImage" loading="lazy" />
+                        <p class="popup-cardDescription">A unique community featuring 37 exclusive residences.</p>
+                    </div>
+                    <div class="popup-card">
+                        <img src="assets/images/popup/home.png" alt="Home" class="popup-cardImage" loading="lazy" />
+                        <p class="popup-cardDescription">A unique community featuring 37 exclusive residences.</p>
+                    </div>
+                    <div class="popup-card">
+                        <img src="assets/images/popup/home.png" alt="Home" class="popup-cardImage" loading="lazy" />
+                        <p class="popup-cardDescription">A unique community featuring 37 exclusive residences.</p>
+                    </div>
+                    <div class="popup-card">
+                        <img src="assets/images/popup/home.png" alt="Home" class="popup-cardImage" loading="lazy" />
+                        <p class="popup-cardDescription">A unique community featuring 37 exclusive residences.</p>
+                    </div><div class="popup-card">
+                        <img src="assets/images/popup/home.png" alt="Home" class="popup-cardImage" loading="lazy" />
+                        <p class="popup-cardDescription">A unique community featuring 37 exclusive residences.</p>
+                    </div>
+                    <div class="popup-card">
+                        <img src="assets/images/popup/home.png" alt="Home" class="popup-cardImage" loading="lazy" />
+                        <p class="popup-cardDescription">A unique community featuring 37 exclusive residences.</p>
+                    </div>
+                </div>
+                <button class="requestCallBackBtn">
+                    <span>Ask For Price Details</span>
+                    <img src="assets/images/icons/TopRIghtArrow.svg" alt="Check Price" loading="lazy" />
+                </button>
+                <img src="assets/images/icons/Blue-sephere.png" alt="Decoration" loading="lazy" class="blueSphere" />
+                <img src="assets/images/icons/brownsphere.png" alt="decoration2" class="brownspherePopup" loading="lazy" />
+            </div>
+        </div>
+
+
+    <script src="assets/js/popup.js"></script>
+
+</body>
+</html>
