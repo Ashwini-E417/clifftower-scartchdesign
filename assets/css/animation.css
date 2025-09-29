@@ -35,3 +35,63 @@
 .visible2 {
   animation: 2.5s cubic-bezier(.25, 1, .30, 1) wipe-in-down both;
 }
+
+
+@keyframes square-in-center {
+   from {
+    transform: scale(0.5);
+   }
+   to {
+    transform: scale(1);
+   }
+}
+.visible {
+  /* visibility: visible; */
+  animation: 1s ease-in-out square-in-center both;
+}
+
+@keyframes wipe-in-right {
+  from {
+    clip-path: inset(0 90% 0 0);
+    /* transform: translate(-50%,-50%) scaleX(0);
+    transform-origin: left; */
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    /* transform: translate(-50%,-50%) scaleX(1);
+    transform-origin: left; */
+  }
+}
+
+.visible3 {
+  visibility: visible;
+  animation: 3s cubic-bezier(.25, 1, .30, 1) wipe-in-right both;
+}
+
+@keyframes wipe-in-left {
+  from {
+    clip-path: inset(0 0 0 90%);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* [transition-style="in:wipe:left"]  */
+.visible4 {
+  animation: 2.5s cubic-bezier(.25, 1, .30, 1) wipe-in-left both;
+}
+
+@keyframes circle-in-center {
+  from {
+    clip-path: circle(0%);
+  }
+  to {
+    clip-path: circle(125%);
+  }
+}
+
+/* [transition-style="in:circle:center"]  */
+.visible5{
+  animation: 2.5s cubic-bezier(.25, 1, .30, 1) circle-in-center both;
+}

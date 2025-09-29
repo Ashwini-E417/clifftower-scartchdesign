@@ -1,12 +1,21 @@
+let lastScrollPoup = 0;
 //main popup
         document.addEventListener("DOMContentLoaded",()=>{
             const mainpopup = document.querySelector(".main-popupContainer");
             function CloseMainPopup() {
+                setTimeout(() => {
+                    console.log(lastScrollPoup,"last scroll");
+                    window.scrollTo(0, lastScrollPoup);
+                }, 0);
                 mainpopup.style.display = "none";
                 document.body.style.overflowY = "visible";
+                 
             }
 
             function OpenMainPopup() {
+                
+                lastScrollPoup = window.scrollY || document.documentElement.scrollTop;
+                console.log("last scroll set",lastScrollPoup)
                 mainpopup.style.display = "block";
                 document.body.style.overflowY = "hidden";
             }
@@ -39,11 +48,16 @@
         document.addEventListener("DOMContentLoaded",()=>{
             const floorpopup = document.querySelector(".floor-popupContainer");
             function ClosefloorPopup() {
+                setTimeout(() => {
+                    console.log(lastScrollPoup,"last scroll");
+                    window.scrollTo(0, lastScrollPoup);
+                }, 0);
                 floorpopup.style.display = "none";
                 document.body.style.overflowY = "visible";
             }
 
             function OpenfloorPopup() {
+                lastScrollPoup = window.scrollY || document.documentElement.scrollTop;
                 floorpopup.style.display = "block";
                 document.body.style.overflowY = "hidden";
             }
@@ -80,10 +94,15 @@
         document.addEventListener("DOMContentLoaded",()=>{
             const oneAddressPopupContainer = document.querySelector(".oneaddress-popupContainer");
             function CloseOneaddressPopup() {
+                setTimeout(() => {
+                    console.log(lastScrollPoup,"last scroll");
+                    window.scrollTo(0, lastScrollPoup);
+                }, 0);
                 oneAddressPopupContainer.style.display = "none";
                 document.body.style.overflowY = "visible";
             }
             function OpenOneaddressPopup() {
+                lastScrollPoup = window.scrollY || document.documentElement.scrollTop;
                 oneAddressPopupContainer.style.display = "block";
                 document.body.style.overflowY = "hidden";
             }
@@ -221,3 +240,6 @@
             })
 
         });
+
+
+

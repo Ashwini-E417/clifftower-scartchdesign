@@ -135,6 +135,19 @@ nav {
     object-fit: cover;
     display: block;
 }
+.projectHeading {
+    font-size: clamp(35px,10.5vw,48px);
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,0%);
+    font-weight: 400;
+    width: 100%;
+    text-align: center;
+}
 .videoImageReverseBtn {
     position: absolute;
     bottom: 0;
