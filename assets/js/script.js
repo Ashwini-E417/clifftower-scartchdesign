@@ -401,3 +401,32 @@
         clearInterval(locationDeskTimer);
         locationDeskTimer = setInterval(SetLocationMoveDesk, 5000);
     }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const animateDownSection = document.querySelectorAll(".animateDown");
+
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: [0,0.3,] // only fire at fully hidden OR half visible2
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+    if (entry.isIntersecting && entry.intersectionRatio > 0.30) {
+        if (!entry.target.classList.contains("visible2")) {
+          entry.target.classList.add("visible2");
+          console.log("add");
+        }
+      } 
+    else if (entry.isIntersecting && entry.intersectionRatio == 0) {
+        // Fully out of view → reset
+        entry.target.classList.remove("visible2");
+        console.log("remove");
+      }
+    });
+  }, observerOptions);
+
+  animateDownSection.forEach(section => observer.observe(section));
+});
