@@ -437,7 +437,7 @@ nav {
     background: linear-gradient(90deg, rgba(153, 107, 85, 1) 3%, rgba(229, 171, 142, 1) 35%, rgba(229, 171, 142, 1) 48%, rgba(153, 107, 85, 1) 93% );
 }
 .floor-description {
-    background-image: url(/assets/images/highligh-banners/mob-floor-bg.png);
+    background-image: url(assets/images/highligh-banners/mob-floor-bg.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     padding: 1rem 1rem 30%;

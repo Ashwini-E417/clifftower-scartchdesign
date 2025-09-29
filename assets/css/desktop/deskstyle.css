@@ -659,7 +659,7 @@ header {
 .floor-Text {
     height: 100%;
     padding: 50% 1rem;
-    background-image: url(/assets/images/highligh-banners/floor-bg-desk.png);
+    background-image: url(assets/images/highligh-banners/floor-bg-desk.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
